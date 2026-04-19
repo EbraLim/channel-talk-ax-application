@@ -70,26 +70,333 @@
     font-size: 14px; font-weight: 500;
     z-index: 100;
     box-shadow: 0 4px 24px rgba(92, 61, 255, 0.06);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    max-width: calc(100vw - 24px);
   }
+  nav > * { flex-shrink: 0; }
   nav .brand {
     display: flex; align-items: center; gap: 8px;
     color: var(--ink);
+    white-space: nowrap;
   }
   nav .brand .logo {
     width: 24px; height: 24px; border-radius: 6px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 13px; font-weight: 700;
+    flex-shrink: 0;
   }
-  nav .sep { width: 1px; height: 16px; background: var(--line); }
-  nav .role { color: var(--ink-soft); font-size: 13px; }
+  nav .sep { width: 1px; height: 16px; background: var(--line); flex-shrink: 0; }
+  nav .role { color: var(--ink-soft); font-size: 13px; white-space: nowrap; }
   nav a.cta {
     background: var(--ink); color: #fff;
     padding: 9px 18px; border-radius: 100px;
     text-decoration: none; font-weight: 600; font-size: 13px;
     transition: background 0.2s;
+    white-space: nowrap;
   }
   nav a.cta:hover { background: var(--primary); }
+
+  /* ─────────── TOC Toggle Button (tablet/mobile only) ─────────── */
+  nav .toc-toggle {
+    background: transparent;
+    border: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 6px 10px;
+    display: none;                    /* hidden on desktop by default */
+    align-items: center;
+    gap: 6px;
+    border-radius: 100px;
+    transition: background 0.2s, color 0.2s;
+  }
+  nav .toc-toggle:hover { background: var(--bg-soft); color: var(--ink); }
+  nav .toc-toggle[aria-expanded="true"] { background: var(--primary-soft); color: var(--primary); }
+  nav .toc-toggle .toc-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 14px;
+  }
+  nav .toc-toggle .toc-icon span {
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  nav .toc-toggle[aria-expanded="true"] .toc-icon span:nth-child(1) {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+  nav .toc-toggle[aria-expanded="true"] .toc-icon span:nth-child(2) { opacity: 0; }
+  nav .toc-toggle[aria-expanded="true"] .toc-icon span:nth-child(3) {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+  nav .toc-toggle .toc-label { display: inline; }
+
+  /* Show TOC toggle on tablet/mobile (up to 1200px) */
+  @media (max-width: 1200px) {
+    nav .toc-toggle { display: flex; }
+  }
+
+  /* ─────────── TOC Dropdown Menu (used on tablet/mobile) ─────────── */
+  .toc-menu {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 8px;
+    min-width: 320px;
+    max-width: calc(100vw - 32px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 99;
+  }
+  .toc-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .toc-menu a {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.18s, color 0.18s;
+  }
+  .toc-menu a:hover { background: var(--bg-soft); }
+  .toc-menu a.active {
+    background: var(--primary-soft);
+    color: var(--primary);
+  }
+  .toc-menu a .n {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-soft);
+    padding: 4px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+  }
+  .toc-menu a.active .n {
+    background: var(--primary);
+    color: #fff;
+  }
+  .toc-menu a .t {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .toc-menu a .t .cat {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+  }
+  .toc-menu a .t .title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .toc-menu a.active .t .cat { color: var(--primary); opacity: 0.8; }
+
+  /* Mobile TOC: edge-to-edge sheet */
+  @media (max-width: 600px) {
+    .toc-menu {
+      top: 68px;
+      left: 12px;
+      right: 12px;
+      transform: translateY(-8px);
+      min-width: 0;
+      max-width: none;
+      border-radius: 14px;
+      /* override desktop centering */
+    }
+    .toc-menu.open { transform: translateY(0); }
+    .toc-menu a { padding: 14px 12px; }
+    .toc-menu a .t .title { font-size: 14px; }
+
+    /* Simplify nav toggle button on small phones: icon only */
+    nav .toc-toggle .toc-label { display: none; }
+    nav .toc-toggle { padding: 8px 10px; }
+  }
+
+  /* ─────────── Side TOC (desktop only, 1200px+) ─────────── */
+  .side-toc {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;                    /* hidden by default, shown on large screens */
+    flex-direction: column;
+    gap: 6px;
+    z-index: 80;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+  }
+  @media (min-width: 1200px) {
+    .side-toc { display: flex; }
+  }
+
+  .side-toc a {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .side-toc a:hover { background: var(--bg-soft); }
+
+  /* The dot itself */
+  .side-toc a .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink-mute);
+    opacity: 0.5;
+    transition: all 0.25s ease;
+  }
+  .side-toc a:hover .dot { opacity: 1; background: var(--ink); }
+  .side-toc a.active .dot {
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    opacity: 1;
+    box-shadow: 0 0 0 4px var(--primary-soft);
+  }
+
+  /* Hover label (pill) */
+  .side-toc a .label {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    background: var(--ink);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .side-toc a .label .n {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 10px;
+    color: #9B83FF;
+    font-weight: 700;
+  }
+  .side-toc a .label::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-left-color: var(--ink);
+  }
+  .side-toc a:hover .label,
+  .side-toc a:focus-visible .label {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* ─────────── Hero ─────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 140px 0 100px;
+    position: relative;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(92, 61, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(92, 61, 255, 0.05) 0%, transparent 50%);
+  }
+
+  /* ─────────── Back to top button ─────────── */
+  .to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.25s, transform 0.25s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    z-index: 90;
+    padding: 0;
+  }
+  .to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .to-top:hover {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(92, 61, 255, 0.25);
+  }
+  .to-top svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .to-top {
+      bottom: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+    }
+    .to-top svg { width: 18px; height: 18px; }
+  }
+
+  /* Section anchor offset — prevent nav from hiding section title when jumping */
+  section[id], div[id="future"] {
+    scroll-margin-top: 88px;
+  }
 
   /* ─────────── Hero ─────────── */
   .hero {
@@ -134,6 +441,7 @@
     color: var(--primary);
     position: relative;
     display: inline-block;
+    white-space: nowrap;
   }
   .hero h1 .underline {
     position: relative;
@@ -658,6 +966,25 @@
     font-weight: 600;
   }
 
+  /* Media slot inside wow-card (OX image, YOLO video) */
+  .wow-card .media {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+  .wow-card .media img,
+  .wow-card .media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   /* ─────────── Future (dark) ─────────── */
   .future-wrap {
     background: var(--ink);
@@ -858,8 +1185,8 @@
 
   /* Tablet (900px and below) */
   @media (max-width: 900px) {
-    nav { top: 12px; padding: 8px 8px 8px 16px; font-size: 12px; gap: 12px; }
-    nav .role { display: none; }
+    nav { top: 12px; padding: 8px 8px 8px 16px; font-size: 12px; gap: 10px; }
+    nav .role, nav .sep { display: none; }
     .wrap { padding: 0 24px; }
     section.block { padding: 80px 0; }
     .hero { padding: 120px 0 80px; }
@@ -998,6 +1325,11 @@
     .vision-quote p { font-size: 16px; }
   }
 
+  /* Ultra narrow devices (360px and below) — prevent hero accent line break */
+  @media (max-width: 360px) {
+    .hero h1 { font-size: 26px; }
+  }
+
   /* Prevent any horizontal overflow */
   html, body { overflow-x: hidden; }
   img { max-width: 100%; }
@@ -1013,8 +1345,82 @@
   </div>
   <span class="sep"></span>
   <span class="role">Channel Talk AX Consultant 지원</span>
+  <button class="toc-toggle" aria-expanded="false" aria-controls="toc-menu" aria-label="목차 열기">
+    <span class="toc-icon"><span></span><span></span><span></span></span>
+    <span class="toc-label">목차</span>
+  </button>
   <a class="cta" href="#contact">연락하기</a>
 </nav>
+
+<!-- TOC Menu -->
+<div class="toc-menu" id="toc-menu" role="menu" aria-labelledby="toc-toggle">
+  <a href="#why" role="menuitem">
+    <span class="n">01</span>
+    <span class="t">
+      <span class="cat">WHY CHANNEL TALK AX</span>
+      <span class="title">"기술을 통한 비즈니스 성장"—이 관심은 갑자기 생기지 않았습니다.</span>
+    </span>
+  </a>
+  <a href="#track" role="menuitem">
+    <span class="n">02</span>
+    <span class="t">
+      <span class="cat">TRACK RECORD</span>
+      <span class="title">숫자로 증명한 만 6년의 궤적.</span>
+    </span>
+  </a>
+  <a href="#automation" role="menuitem">
+    <span class="n">03</span>
+    <span class="t">
+      <span class="cat">AUTOMATION · AI IN PRACTICE</span>
+      <span class="title">"이미 만들어본 사람"으로 합류합니다.</span>
+    </span>
+  </a>
+  <a href="#wow" role="menuitem">
+    <span class="n">04</span>
+    <span class="t">
+      <span class="cat">WOW MOMENTS</span>
+      <span class="title">AI로 "이게 가능하다고?"라고 느꼈던 순간들.</span>
+    </span>
+  </a>
+  <a href="#future" role="menuitem">
+    <span class="n">05</span>
+    <span class="t">
+      <span class="cat">WHAT I WANT TO BUILD AT AX</span>
+      <span class="title">AX에서 하고 싶은 일은 이미 제 안에 있습니다.</span>
+    </span>
+  </a>
+</div>
+
+<!-- Side TOC (desktop ≥1200px) -->
+<aside class="side-toc" aria-label="섹션 목차">
+  <a href="#why" aria-label="01 Why Channel Talk AX">
+    <span class="dot"></span>
+    <span class="label"><span class="n">01</span>Why Channel Talk AX</span>
+  </a>
+  <a href="#track" aria-label="02 Track Record">
+    <span class="dot"></span>
+    <span class="label"><span class="n">02</span>Track Record</span>
+  </a>
+  <a href="#automation" aria-label="03 Automation · AI in Practice">
+    <span class="dot"></span>
+    <span class="label"><span class="n">03</span>Automation · AI in Practice</span>
+  </a>
+  <a href="#wow" aria-label="04 Wow Moments">
+    <span class="dot"></span>
+    <span class="label"><span class="n">04</span>Wow Moments</span>
+  </a>
+  <a href="#future" aria-label="05 What I Want to Build at AX">
+    <span class="dot"></span>
+    <span class="label"><span class="n">05</span>What I Want to Build at AX</span>
+  </a>
+</aside>
+
+<!-- Back to top button -->
+<button class="to-top" aria-label="맨 위로 이동">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
 
 <!-- HERO -->
 <section class="hero">
@@ -1044,7 +1450,7 @@
 </section>
 
 <!-- WHY -->
-<section class="block">
+<section class="block" id="why">
   <div class="wrap">
     <div class="section-label">
       <span class="num">01</span>
@@ -1058,24 +1464,24 @@
     <div class="why-grid">
       <div class="why-prose">
         <p>
-          저는 스스로를 <span class="mark">"데이터 분석을 기반으로 한 비즈니스 개발에 관심이 많은 사람"</span>이라고 소개해왔습니다. 5곳의 직장, 5가지 직무를 거치면서도 <strong>기저에 깔려 있던 관심사는 항상 같았다</strong>고 말할 수 있는 이유입니다.
+          저는 스스로를 <span class="mark">"데이터 분석을 기반으로 한 비즈니스 개발에 관심이 많은 사람"</span>이라고 소개해 왔습니다. 6곳의 직장, 5가지 직무를 거치면서도 <strong>기저에 깔려 있던 관심사는 항상 같았다</strong>고 말할 수 있는 이유입니다.
         </p>
         <p>
-          이 관심은 실무에서 그치지 않았습니다. <strong>49명의 이커머스 초기 사업자분들께 3회차 강의</strong>를 진행하며 '커머스 비즈니스 프로세스', '고객 구매 여정', '검색광고 운영'을 5단계로 구조화해 설명했고, <span class="quote">총평 4.6/5</span>을 받았습니다. 복잡한 비즈니스를 구조화하고, 실행으로 옮기는 일. <span class="mark">AX Consultant가 하는 일의 축소판</span>을 그때 이미 해봤던 셈입니다.
+          이 관심은 실무에서 그치지 않았습니다. <strong>총 3회, 49명의 이커머스 초기 사업자분들께 강의</strong>를 진행하며 '커머스 비즈니스 프로세스', '고객 구매 여정', '검색광고 운영'에 대해 설명 드렸고, <span class="quote">총평 4.6/5</span>을 받았습니다. 복잡한 비즈니스의 프로세스를 구조화해 고객에게 전달하는 일. <span class="mark">AX Consultant가 하는 일의 축소판</span>을 그때 이미 해봤던 셈입니다.
         </p>
         <p>
           그리고 지금, AI가 그 모든 걸 <strong>산업혁명급 속도로 재편</strong>하고 있습니다. 그 변화의 가장 예리한 접점은 고객과 기업이 만나는 순간 — <span class="mark">상담과 운영의 현장</span>이라고 봅니다.
         </p>
         <p>
-          채널톡이 만들고 있는 건 단순한 CS 툴이 아니라, <strong>기업이 고객을 이해하는 방식 자체를 AI로 재설계하는 플랫폼</strong>이라고 읽었습니다. 그 여정에 <span class="quote">설계자로 합류하고 싶습니다.</span>
+          채널톡이 만들고 있는 건 단순한 CS 툴이 아니라, <strong>기업이 고객을 이해하는 방식 자체를 AI로 재설계하는 플랫폼</strong>이라고 읽었습니다. 그 여정에 <span class="quote">설계자로 함께 합류하고 싶습니다.</span>
         </p>
       </div>
 
       <aside class="evidence-card">
         <span class="tag">📎 EVIDENCE · 2023</span>
-        <h4>3년 전, 이미 이 길을 걷고 있었습니다</h4>
+        <h4>3년 전에도, 이 방향이었습니다</h4>
         <p class="snippet">
-          "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 7년차 직장인이 되기까지 4곳의 직장, 4가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
+          "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 5년차 직장인이 되기까지 5곳의 직장, 5가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
         </p>
         <div class="meta-row">
           <span>LinkedIn · 2023</span>
@@ -1104,7 +1510,7 @@
 </section>
 
 <!-- TRACK RECORD -->
-<section class="block soft">
+<section class="block soft" id="track">
   <div class="wrap">
     <div class="section-label">
       <span class="num">02</span>
@@ -1115,7 +1521,7 @@
       만 6년의 궤적.
     </h2>
     <p class="section-desc">
-      4개 회사를 거치며 일관되게 추구한 한 가지 — 데이터로 비즈니스를 성장시키는 것.
+      6개 회사를 거치며 일관되게 추구한 한 가지 — 데이터로 비즈니스를 성장시키는 것.
     </p>
 
     <div class="track-grid">
@@ -1139,28 +1545,28 @@
           <span class="sign">↑</span>35<span class="unit">%</span>
         </div>
         <div class="metric-label">ROAS 증대 (월 예산 2억)</div>
-        <div class="desc">KPI 정의부터 매체 운영 전략, AB 테스트 기획·수행까지. 데이터 인사이트를 실행으로 옮긴 경험.</div>
+        <div class="desc">KPI 정의부터 매체 운영 전략, AB 테스트 기획·수행까지.<br>데이터 인사이트를 실행으로 옮긴 경험.</div>
       </div>
 
       <div class="track-card">
         <div class="period">2022.02 — 2024.05 · BAT</div>
         <div class="company">BAT</div>
-        <div class="role">AE · 금융앱 앱광고 등 → Data Analyst</div>
+        <div class="role">AE (금융앱 UA/RE) → Data Analyst</div>
         <div class="metric">
           <span class="sign">↓</span>20·11<span class="unit">%</span>
         </div>
         <div class="metric-label">CPI 20% ↓ · 회원가입 CPA 11% ↓</div>
-        <div class="desc">금융앱 UA/RE 캠페인 전략 수립 및 운영, 식품회사 SVD 협업필터링 기반 개인화 CRM 전략 제안까지 확장.</div>
+        <div class="desc">금융앱 UA/RE 캠페인 전략 수립 및 운영,<br>식품회사 SVD 협업필터링 기반 개인화 CRM 전략 제안까지 확장.</div>
       </div>
 
       <div class="track-card current">
         <span class="badge">NOW</span>
         <div class="period">CURRENT · Beiersdorf</div>
         <div class="company">Beiersdorf</div>
-        <div class="role">DA 운영 → 영업기획 · P&amp;L 및 세일즈 전략</div>
+        <div class="role">DA(디스플레이 광고) 운영 → 영업기획 · P&amp;L 및 세일즈 전략</div>
         <div class="metric">Revenue<br>→ Profit</div>
-        <div class="metric-label">매출부터 영업이익까지 숫자 관리</div>
-        <div class="desc">DA ROAS 개선을 시작으로, 현재는 세일즈 전략 방향성 제안까지. 숫자가 곧 의사결정이 되는 지점에 있습니다.</div>
+        <div class="metric-label">광고 매출, E-com 전체 매출 및 영업이익까지 숫자 관리</div>
+        <div class="desc">DA ROAS 개선을 시작으로, 현재는 세일즈 전략 방향성 제안까지.<br>숫자가 곧 의사결정이 되는 지점에 있습니다.</div>
       </div>
 
     </div>
@@ -1168,7 +1574,7 @@
 </section>
 
 <!-- AUTOMATION -->
-<section class="block">
+<section class="block" id="automation">
   <div class="wrap">
     <div class="section-label">
       <span class="num">03</span>
@@ -1179,7 +1585,7 @@
       합류합니다.
     </h2>
     <p class="section-desc">
-      AI와 자동화는 개념으로만 아는 게 아닙니다. 실무에서 시간과 비용을 실제로 줄여본 경험들입니다.
+      AI와 자동화는 개념으로만 아는 게 아닙니다.<br>실무에서 시간과 비용을 실제로 줄여본 경험들이 필요합니다.
     </p>
 
     <div class="auto-list">
@@ -1187,8 +1593,8 @@
       <div class="auto-row">
         <div class="num">01</div>
         <div class="content">
-          <h4>데일리 리포트 작성 자동화 <span class="where">BAT</span></h4>
-          <p>수기 작성 프로세스를 Python으로 전환. 팀원들의 반복 업무 시간을 90% 이상 줄였습니다.</p>
+          <h4>데일리 리포트 작성 자동화 <span class="where">(@BAT)</span></h4>
+          <p>리포트 수기 작성 프로세스를 Python으로 전환. 팀원들의 반복 업무 시간을 90% 이상 줄였습니다.</p>
         </div>
         <div class="impact">
           <div class="big">1h → 5min</div>
@@ -1199,7 +1605,7 @@
       <div class="auto-row">
         <div class="num">02</div>
         <div class="content">
-          <h4>상품별 가격·품절 모니터링 자동화 <span class="where">BAT</span></h4>
+          <h4>상품별 가격·품절 모니터링 자동화 <span class="where">(@BAT)</span></h4>
           <p>수백 개 광고 중 이슈 발생 상품만 자동으로 탐지하여 광고 OFF까지 연결. 낭비 예산을 원천 차단.</p>
         </div>
         <div class="impact">
@@ -1211,20 +1617,20 @@
       <div class="auto-row">
         <div class="num">03</div>
         <div class="content">
-          <h4>SVD 협업필터링 기반 개인화 CRM <span class="where">BAT</span></h4>
-          <p>유저 웹로그(implicit data) 기반 개인별 상품 추천 모델을 직접 개발. 단일 CRM을 개인화된 LMS CRM으로 전환 제안.</p>
+          <h4>SVD 협업 필터링 기반 개인화 CRM <span class="where">(@BAT)</span></h4>
+          <p>유저 웹로그 기반 개인별 상품 추천 모델 직접 개발. 무분별한 단일 메시지에서 개인화된 LMS로 CRM 개선 제안.</p>
         </div>
         <div class="impact">
           <div class="big">1 → N</div>
-          <div class="small">단일 → 개인화</div>
+          <div class="small">단일 → 맞춤화</div>
         </div>
       </div>
 
       <div class="auto-row">
         <div class="num">04</div>
         <div class="content">
-          <h4>JS 기반 약 500회 반복 다운로드 자동화 <span class="where">Beiersdorf</span></h4>
-          <p>반복 작업을 자동화 스크립트로 전환. "반복 작업으로 인한 병목 및 아이디어 한계 해소"를 스스로 증명한 사례.</p>
+          <h4>JS 기반 약 500회 반복 다운로드 자동화 <span class="where">(@Beiersdorf)</span></h4>
+          <p>반복 작업을 자동화 스크립트로 전환. 반복 작업 병목을 없애니 아이디어에 쓸 시간이 생긴다는 걸 스스로 증명한 사례.</p>
         </div>
         <div class="impact">
           <div class="big">500× → 1×</div>
@@ -1237,7 +1643,7 @@
 </section>
 
 <!-- WOW MOMENTS -->
-<section class="block purple">
+<section class="block purple" id="wow">
   <div class="wrap">
     <div class="section-label">
       <span class="num">04</span>
@@ -1245,22 +1651,25 @@
     </div>
     <h2 class="section-title">
       AI로 <span class="accent">"이게 가능하다고?"</span><br>
-      라고 느끼게 해준 순간들.
+      라고 느꼈던 순간들.
     </h2>
     <p class="section-desc">
       <strong>제가 AI를 쓰면서 스스로 감탄했던 순간들</strong>입니다.<br>
-      "AI의 확장성은 엄청나구나. 머지않아 AI 활용 능력이 곧 시장 지배력이 되겠구나" 라는 확신이 들었습니다.
+      "AI의 가능성은 엄청나구나. 머지않아 AI 활용 능력이 곧 시장 지배력이 되겠구나" 라는 확신이 들었습니다.
     </p>
 
     <div class="wow-grid">
 
       <div class="wow-card">
         <span class="tag">DEEP LEARNING · 2021</span>
-        <div class="quote">"전처리 한 끗 차이로 76.6% → 98.4%."</div>
+        <div class="quote">"전처리 한 끗 차이로 모델 정확도 76.6% → 98.4%."</div>
         <h4>수기 OX 이미지 분류 딥러닝 모델</h4>
         <p>
-          A4를 64등분한 종이에 5종류 펜으로 총 320장 직접 제작. 이진화 threshold, dilate/erode 커널, ROI crop까지 3번의 iteration으로 성능을 <strong>28%p 끌어올린</strong> 경험. <strong>모델보다 전처리와 문제 정의가 더 중요하다</strong>는 걸 몸으로 배운 프로젝트.
+          A4를 64등분한 종이에 5종류 펜으로 OX 이미지 총 320장 직접 제작. 이진화 threshold, dilate/erode 커널, ROI crop까지 3번의 iteration으로 성능을 <strong>28%p 끌어올린</strong> 경험. <strong>모델 자체보다 문제 정의 및 전처리가 더 중요할 수 있다</strong>는 걸 몸으로 배웠던 프로젝트.
         </p>
+        <div class="media">
+          <img src="assets/OX-image.png" alt="직접 제작한 OX 이미지 데이터셋 (5종 필기구)" loading="lazy">
+        </div>
         <div class="links">
           <a href="https://github.com/EbraLim/dss_project_DeepLearning_mini" target="_blank">GitHub Repo ↗</a>
         </div>
@@ -1268,13 +1677,19 @@
 
       <div class="wow-card">
         <span class="tag">COMPUTER VISION · 2021</span>
-        <div class="quote">"실시간으로 카메라에 찍힌 사람/이륜차를 구분하고 거리까지 계산"</div>
+        <div class="quote">"실시간으로 카메라에 찍힌 사람/이륜차를 구분하고 추적, 거리까지 계산"</div>
         <h4>YOLO 기반 객체 탐지 및 추적 모델</h4>
         <p>
-          "자율주행에 필요한 기능을 직접 구현해보고 싶다"는 호기심 하나로 YOLO 아키텍처를 공부하고 구현한 프로젝트. 모델이 실제로 작동하는 순간 느꼈던 <strong>"AI로 이런 것까지 가능하구나"라는 충격</strong>이 지금까지의 모든 학습의 출발점이 되었습니다.
+          "자율주행에 필요한 기능을 직접 구현해보고 싶다"는 호기심 하나로 YOLO 아키텍처를 공부하고 구현했던 프로젝트. 모델이 실제로 기능하는 순간 느꼈던 <strong>"AI로 이런 것까지 가능하구나"라는 충격</strong>은 아직까지도 생생합니다. 
         </p>
+        <div class="media">
+          <video autoplay loop muted playsinline preload="metadata" poster="">
+            <source src="assets/yolo-output.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="links">
           <a href="https://github.com/EbraLim/dss_project_DeepLearning" target="_blank">GitHub Repo ↗</a>
+          <a href="https://www.youtube.com/watch?v=6U0FsT5lLr8" target="_blank">결과물 보기 ↗</a>
         </div>
       </div>
 
@@ -1283,9 +1698,9 @@
         <div class="app-content">
           <span class="tag">SHIPPING NOW · 2026</span>
           <div class="quote">"내가 앱을 만들 수 있다는 것 자체가 wow."</div>
-          <h4>미세먼지 알림 앱 개발 (~ing)</h4>
+          <h4>미세먼지 알림 앱 개발 (진행중)</h4>
           <p>
-            AI로 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 증명하는 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AX팀이 하고 싶어 하는 일을 일상에서 이미 구현해보고 있습니다"</strong>
+            AI로 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 확인했던 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AI를 통해 업무 방식과 영역에 큰 변화가 생길 수 있겠다는 가능성을 보았습니다"</strong>
           </p>
         </div>
         <div class="app-screens">
@@ -1297,14 +1712,14 @@
 
       <div class="wow-card" style="grid-column: span 2;">
         <span class="tag">CLAUDE CODE · 2025 —</span>
-        <div class="quote">"시스템을 대화로 만들고, 디버깅하고, 디벨롭한다."</div>
+        <div class="quote">"AI와의 대화로 시스템을 설계하고, 검증하고, 디벨롭한다."</div>
         <h4>데이터 엔지니어링 독학 중</h4>
         <p>
-          데이터 파이프라인과 시스템을 <strong>Claude Code로 대화하면서 구현·디버깅·디벨롭하는 경험</strong>이 충격적이었습니다. 이게 앞으로 모든 일의 기본 방식이 될 것이라는 확신이 들었습니다. — <strong>이 지원서 페이지조차 Claude Code로 만들고 있습니다.</strong> 
+          데이터 파이프라인을 <strong>Claude Code와의 대화로 구현·디버깅·디벨롭하는 경험</strong>은 신선한 충격이었습니다.<br>앞으로 이것이 모든 일의 기본 방식이 될 것이라는 확신이 들었습니다. — <strong>이 지원서 페이지조차 Claude Code로 만들고 있습니다.</strong> 
         </p>
         <div class="data-pipeline-snapshot">
           <div class="pipeline-frame"><img src="assets/pipeline-architecture.png" alt="데이터 파이프라인 아키텍처" loading="lazy"></div>
-          <p class="caption">매일 새벽 수집·검증·적재되는 네이버 쇼핑 데이터 파이프라인 — <code>Cloud Functions</code>, <code>BigQuery</code>, <code>dbt</code>, <code>Airflow</code>를 Claude Code와 대화로 구성했습니다.</p>
+          <p class="caption">매일 새벽 수집·검증·적재되는 네이버 쇼핑 데이터 파이프라인<br>— <code>Cloud Functions</code>, <code>BigQuery</code>, <code>dbt</code>, <code>Airflow</code>를 Claude Code와 대화로 구성했습니다.</p>
         </div>
       </div>
 
@@ -1313,7 +1728,7 @@
 </section>
 
 <!-- FUTURE -->
-<div class="future-wrap">
+<div class="future-wrap" id="future">
   <div class="wrap">
     <div class="section-label">
       <span class="num">05</span>
@@ -1324,7 +1739,7 @@
       이미 제 안에 있습니다.
     </h2>
     <p class="section-desc">
-      막연한 포부가 아닌, 지금까지의 경험을 그대로 잇는 다음 장의 이야기입니다.
+      막연한 포부가 아닌, 지금까지의 경험을 그대로 이어 나가는 다음 장의 이야기입니다.
     </p>
 
     <div class="future-list">
@@ -1341,7 +1756,7 @@
       <div class="future-item">
         <div class="num">3</div>
         <h4>글로벌로<br>확장하는 여정</h4>
-        <p>영어로 비즈니스 소통이 가능합니다. 채널톡의 <strong>글로벌 진출에 AX팀원으로 기여</strong>하고 싶습니다.</p>
+        <p>영어로 비즈니스 소통이 가능합니다. 채널톡의 <strong>글로벌 진출에 AX팀원으로서 기여</strong>하고 싶습니다.</p>
       </div>
     </div>
 
@@ -1375,6 +1790,122 @@
 <footer>
   © 2026 임현수 · Built with <span class="built">Claude Code</span> · Last updated April 19, 2026
 </footer>
+
+<script>
+(function() {
+  // ===== TOC Menu toggle =====
+  var tocToggle = document.querySelector('.toc-toggle');
+  var tocMenu = document.getElementById('toc-menu');
+  var tocLinks = tocMenu ? tocMenu.querySelectorAll('a') : [];
+
+  function closeToc() {
+    tocMenu.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  function openToc() {
+    tocMenu.classList.add('open');
+    tocToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  if (tocToggle && tocMenu) {
+    tocToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (tocMenu.classList.contains('open')) {
+        closeToc();
+      } else {
+        openToc();
+      }
+    });
+
+    // Close on any link click
+    tocLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        closeToc();
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (tocMenu.classList.contains('open') &&
+          !tocMenu.contains(e.target) &&
+          !tocToggle.contains(e.target)) {
+        closeToc();
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && tocMenu.classList.contains('open')) {
+        closeToc();
+      }
+    });
+  }
+
+  // ===== Active section tracking (IntersectionObserver) =====
+  var sections = ['why', 'track', 'automation', 'wow', 'future']
+    .map(function(id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  // Collect all TOC links (from both dropdown menu and side TOC)
+  var sideToc = document.querySelector('.side-toc');
+  var sideTocLinks = sideToc ? sideToc.querySelectorAll('a') : [];
+
+  // Map id -> array of links pointing to that id
+  var linksById = {};
+  function registerLinks(linkList) {
+    linkList.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      if (!linksById[id]) linksById[id] = [];
+      linksById[id].push(link);
+    });
+  }
+  registerLinks(tocLinks);
+  registerLinks(sideTocLinks);
+
+  function setActive(id) {
+    Object.keys(linksById).forEach(function(key) {
+      var isActive = key === id;
+      linksById[key].forEach(function(link) {
+        link.classList.toggle('active', isActive);
+      });
+    });
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var observer = new IntersectionObserver(function(entries) {
+      var visible = entries.filter(function(e) { return e.isIntersecting; });
+      if (!visible.length) return;
+      visible.sort(function(a, b) { return b.intersectionRatio - a.intersectionRatio; });
+      setActive(visible[0].target.id);
+    }, {
+      rootMargin: '-25% 0px -60% 0px',
+      threshold: [0, 0.1, 0.3]
+    });
+
+    sections.forEach(function(s) { observer.observe(s); });
+  }
+
+  // ===== Back to top button =====
+  var toTop = document.querySelector('.to-top');
+  if (toTop) {
+    var ticking = false;
+    function updateToTop() {
+      toTop.classList.toggle('visible', window.scrollY > 400);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateToTop);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    toTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
