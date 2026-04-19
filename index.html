@@ -614,6 +614,50 @@
     display: block;
   }
 
+  /* Pipeline snapshot — horizontal architecture diagram inside Claude Code card */
+  .data-pipeline-snapshot {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+  .data-pipeline-snapshot .pipeline-frame {
+    aspect-ratio: 1076 / 647;
+    width: 100%;
+    background: #0D0D10;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 24px -8px rgba(92, 61, 255, 0.15);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .data-pipeline-snapshot .pipeline-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .data-pipeline-snapshot .caption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.6;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+  }
+  .data-pipeline-snapshot .caption code {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    background: var(--bg-soft);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink-2);
+    font-style: normal;
+    font-weight: 600;
+  }
+
   /* ─────────── Future (dark) ─────────── */
   .future-wrap {
     background: var(--ink);
@@ -897,6 +941,11 @@
     .wow-card p { font-size: 14px; }
     .wow-card.app-card { padding: 28px 24px; }
 
+    .data-pipeline-snapshot { margin-top: 20px; padding-top: 16px; }
+    .data-pipeline-snapshot .pipeline-frame { border-radius: 10px; }
+    .data-pipeline-snapshot .caption { font-size: 12px; margin-top: 10px; }
+    .data-pipeline-snapshot .caption code { font-size: 11px; }
+
     .future-item { padding: 28px 24px; }
     .future-item h4 { font-size: 19px; }
 
@@ -980,9 +1029,9 @@
       <span class="accent">이미 하고 있습니다.</span>
     </h1>
     <p class="sub">
-      영업기획 · 데이터 분석가 · 디지털 마케터로 <strong>만 6년</strong>.<br>
+      디지털 마케터 · 데이터 분석가 · 영업기획으로 <strong>만 6년</strong>.<br>
       숫자로 비즈니스 성장을 증명하고, 코드로 업무 방식을 바꿔왔습니다.<br>
-      이제 그 경험을 <strong>채널톡 AX</strong>에서 잇고 싶습니다.
+      이제 그 경험을 <strong>채널톡 AX</strong>에서 이어 나가고 싶습니다.
     </p>
     <div class="chips">
       <span class="chip filled">7년차 · 만 6년</span>
@@ -1024,9 +1073,9 @@
 
       <aside class="evidence-card">
         <span class="tag">📎 EVIDENCE · 2023</span>
-        <h4>4년 전, 이미 이 길을 걷고 있었습니다</h4>
+        <h4>3년 전, 이미 이 길을 걷고 있었습니다</h4>
         <p class="snippet">
-          "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 5년차 직장인이 되기까지 5곳의 직장, 5가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
+          "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 7년차 직장인이 되기까지 4곳의 직장, 4가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
         </p>
         <div class="meta-row">
           <span>LinkedIn · 2023</span>
@@ -1094,21 +1143,21 @@
       </div>
 
       <div class="track-card">
-        <div class="period">2022.02 — · BAT</div>
+        <div class="period">2022.02 — 2024.05 · BAT</div>
         <div class="company">BAT</div>
-        <div class="role">AE → Data Analyst · 두나무 비상장</div>
+        <div class="role">AE · 금융앱 앱광고 등 → Data Analyst</div>
         <div class="metric">
           <span class="sign">↓</span>20·11<span class="unit">%</span>
         </div>
         <div class="metric-label">CPI 20% ↓ · 회원가입 CPA 11% ↓</div>
-        <div class="desc">App UA/RE 캠페인 전략 수립 및 운영. SVD 협업필터링 기반 개인화 CRM 전략을 제안하는 데까지 확장.</div>
+        <div class="desc">금융앱 UA/RE 캠페인 전략 수립 및 운영, 식품회사 SVD 협업필터링 기반 개인화 CRM 전략 제안까지 확장.</div>
       </div>
 
       <div class="track-card current">
         <span class="badge">NOW</span>
         <div class="period">CURRENT · Beiersdorf</div>
         <div class="company">Beiersdorf</div>
-        <div class="role">영업기획 · P&amp;L 및 세일즈 전략</div>
+        <div class="role">DA 운영 → 영업기획 · P&amp;L 및 세일즈 전략</div>
         <div class="metric">Revenue<br>→ Profit</div>
         <div class="metric-label">매출부터 영업이익까지 숫자 관리</div>
         <div class="desc">DA ROAS 개선을 시작으로, 현재는 세일즈 전략 방향성 제안까지. 숫자가 곧 의사결정이 되는 지점에 있습니다.</div>
@@ -1174,8 +1223,8 @@
       <div class="auto-row">
         <div class="num">04</div>
         <div class="content">
-          <h4>JS 기반 약 500회 반복 다운로드 자동화 <span class="where">Personal</span></h4>
-          <p>반복 작업을 자동화 스크립트로 전환. "이걸 왜 수동으로 하고 있었지?"를 스스로 증명한 사례.</p>
+          <h4>JS 기반 약 500회 반복 다운로드 자동화 <span class="where">Beiersdorf</span></h4>
+          <p>반복 작업을 자동화 스크립트로 전환. "반복 작업으로 인한 병목 및 아이디어 한계 해소"를 스스로 증명한 사례.</p>
         </div>
         <div class="impact">
           <div class="big">500× → 1×</div>
@@ -1195,12 +1244,12 @@
       WOW MOMENTS
     </div>
     <h2 class="section-title">
-      AI가 <span class="accent">"이게 가능하다고?"</span><br>
+      AI로 <span class="accent">"이게 가능하다고?"</span><br>
       라고 느끼게 해준 순간들.
     </h2>
     <p class="section-desc">
-      누군가를 감탄시킨 성과가 아니라, <strong>제가 AI를 쓰면서 스스로 감탄했던 순간들</strong>입니다.<br>
-      "AI의 확장성은 엄청나구나. 머지않아 AI 활용 능력이 곧 시장 지배력이 되겠구나" — 그 확신이 저를 여기까지 오게 했습니다.
+      <strong>제가 AI를 쓰면서 스스로 감탄했던 순간들</strong>입니다.<br>
+      "AI의 확장성은 엄청나구나. 머지않아 AI 활용 능력이 곧 시장 지배력이 되겠구나" 라는 확신이 들었습니다.
     </p>
 
     <div class="wow-grid">
@@ -1219,10 +1268,10 @@
 
       <div class="wow-card">
         <span class="tag">COMPUTER VISION · 2021</span>
-        <div class="quote">"바퀴 달린 장난감이 스스로 길을 찾더라."</div>
-        <h4>YOLO 기반 자율주행 미니카 모델</h4>
+        <div class="quote">"실시간으로 카메라에 찍힌 사람/이륜차를 구분하고 거리까지 계산"</div>
+        <h4>YOLO 기반 객체 탐지 및 추적 모델</h4>
         <p>
-          "자율주행을 해보고 싶다"는 호기심 하나로 YOLO 아키텍처를 공부하고 구현한 프로젝트. 모델이 실제로 작동하는 순간 느낀 <strong>"AI가 이런 걸 가능하게 한다"는 감각</strong>이 지금까지의 모든 학습의 출발점이 되었습니다.
+          "자율주행에 필요한 기능을 직접 구현해보고 싶다"는 호기심 하나로 YOLO 아키텍처를 공부하고 구현한 프로젝트. 모델이 실제로 작동하는 순간 느꼈던 <strong>"AI로 이런 것까지 가능하구나"라는 충격</strong>이 지금까지의 모든 학습의 출발점이 되었습니다.
         </p>
         <div class="links">
           <a href="https://github.com/EbraLim/dss_project_DeepLearning" target="_blank">GitHub Repo ↗</a>
@@ -1234,25 +1283,29 @@
         <div class="app-content">
           <span class="tag">SHIPPING NOW · 2026</span>
           <div class="quote">"내가 앱을 만들 수 있다는 것 자체가 wow."</div>
-          <h4>미세먼지 알림 앱 개발 中</h4>
+          <h4>미세먼지 알림 앱 개발 (~ing)</h4>
           <p>
-            AI와 함께라면 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 증명하는 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AX팀이 하고 싶어 하는 일을 내 일상에서 이미 하고 있다"</strong>는 증거.
+            AI로 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 증명하는 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AX팀이 하고 싶어 하는 일을 일상에서 이미 구현해보고 있습니다"</strong>
           </p>
         </div>
         <div class="app-screens">
-          <div class="screen-frame"><img src="assets/app-1-region.png" alt="지역 설정 화면"></div>
-          <div class="screen-frame"><img src="assets/app-2-alarm.png" alt="알림 설정 화면"></div>
-          <div class="screen-frame"><img src="assets/app-3-main.png" alt="메인 화면"></div>
+          <div class="screen-frame"><img src="assets/app-1-region.png" alt="지역 설정 화면" loading="lazy"></div>
+          <div class="screen-frame"><img src="assets/app-2-alarm.png" alt="알림 설정 화면" loading="lazy"></div>
+          <div class="screen-frame"><img src="assets/app-3-main.png" alt="메인 화면" loading="lazy"></div>
         </div>
       </div>
 
       <div class="wow-card" style="grid-column: span 2;">
         <span class="tag">CLAUDE CODE · 2025 —</span>
         <div class="quote">"시스템을 대화로 만들고, 디버깅하고, 디벨롭한다."</div>
-        <h4>대화형 데이터 엔지니어링 독학</h4>
+        <h4>데이터 엔지니어링 독학 중</h4>
         <p>
-          Claude Code로 데이터 파이프라인과 시스템을 <strong>대화하면서 구현·디버깅·디벨롭하는 경험</strong>이 충격적이었습니다. 이게 앞으로 모든 일의 기본 방식이 될 것이라는 확신. 그래서 — <strong>이 지원서 페이지조차 Claude Code로 만들고 있습니다.</strong> 지금 이 페이지가 그 증거입니다.
+          데이터 파이프라인과 시스템을 <strong>Claude Code로 대화하면서 구현·디버깅·디벨롭하는 경험</strong>이 충격적이었습니다. 이게 앞으로 모든 일의 기본 방식이 될 것이라는 확신이 들었습니다. — <strong>이 지원서 페이지조차 Claude Code로 만들고 있습니다.</strong> 
         </p>
+        <div class="data-pipeline-snapshot">
+          <div class="pipeline-frame"><img src="assets/pipeline-architecture.png" alt="데이터 파이프라인 아키텍처" loading="lazy"></div>
+          <p class="caption">매일 새벽 수집·검증·적재되는 네이버 쇼핑 데이터 파이프라인 — <code>Cloud Functions</code>, <code>BigQuery</code>, <code>dbt</code>, <code>Airflow</code>를 Claude Code와 대화로 구성했습니다.</p>
+        </div>
       </div>
 
     </div>
@@ -1278,17 +1331,17 @@
       <div class="future-item">
         <div class="num">1</div>
         <h4>현장의 "미쳤다"를<br>AI로 증폭하기</h4>
-        <p>리포트 자동화로 팀원들이 감탄하던 짜릿함을, 이번엔 <strong>고객사 현장에서 AI라는 훨씬 큰 지렛대</strong>로 다시 만들고 싶습니다.</p>
+        <p>업무 자동화로 팀원들이 감탄하고 본질에 집중하던 모습을 볼 때의 짜릿함을, 이번엔 <strong>고객사 현장에서 AI라는 훨씬 큰 지렛대</strong>로 다시 만들고 싶습니다.</p>
       </div>
       <div class="future-item">
         <div class="num">2</div>
         <h4>AI 기반 성장을<br>선도적으로 설계</h4>
-        <p>AI가 누군가의 도구가 아니라 <strong>비즈니스 성장의 방법론</strong>이 되도록. 고객사와 함께 업무 자체를 AI로 재설계하는 역할.</p>
+        <p>AI가 고객사의 <strong>비즈니스 성장의 지렛대</strong>가 되도록. 고객사와 함께 업무 자체를 AI로 재설계하는 역할을 앞서 수행하고 싶습니다.</p>
       </div>
       <div class="future-item">
         <div class="num">3</div>
-        <h4>일본·미국으로<br>확장하는 여정</h4>
-        <p>영어로 원활한 소통이 가능합니다. 채널톡의 <strong>글로벌 진출에 AX팀원으로 기여</strong>하고 싶습니다.</p>
+        <h4>글로벌로<br>확장하는 여정</h4>
+        <p>영어로 비즈니스 소통이 가능합니다. 채널톡의 <strong>글로벌 진출에 AX팀원으로 기여</strong>하고 싶습니다.</p>
       </div>
     </div>
 
