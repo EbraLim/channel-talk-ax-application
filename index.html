@@ -7,7 +7,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="임현수 · Channel Talk AX Consultant 지원">
-<meta property="og:description" content="AI로 일하는 방식을 바꾸는 일, 이미 하고 있습니다. 만 6년의 데이터·자동화·AI 실전 경험.">
+<meta property="og:description" content="제 지난 6년이 AI로 인해 무력해질 수 있겠다고 느꼈습니다. 그래서 움직이기 시작했습니다. — 채널톡 AX Consultant 지원.">
 <meta property="og:image" content="https://channel-talk-ax-application.vercel.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="임현수 · Channel Talk AX Consultant 지원">
-<meta name="twitter:description" content="AI로 일하는 방식을 바꾸는 일, 이미 하고 있습니다.">
+<meta name="twitter:description" content="제 지난 6년이 AI로 인해 무력해질 수 있겠다고 느꼈습니다. 그래서 움직이기 시작했습니다.">
 <meta name="twitter:image" content="https://channel-talk-ax-application.vercel.app/assets/og-image.png">
 
 <title>임현수 · Channel Talk AX Consultant 지원</title>
@@ -430,9 +430,9 @@
   }
 
   .hero h1 {
-    font-size: clamp(44px, 6.8vw, 84px);
+    font-size: clamp(22px, 4.5vw, 72px);
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.12;
     letter-spacing: -0.04em;
     margin-bottom: 40px;
     color: var(--ink);
@@ -440,6 +440,10 @@
   .hero h1 .accent {
     color: var(--primary);
     position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .hero h1 .nowrap-line {
     display: inline-block;
     white-space: nowrap;
   }
@@ -1190,7 +1194,6 @@
     .wrap { padding: 0 24px; }
     section.block { padding: 80px 0; }
     .hero { padding: 120px 0 80px; }
-    .hero h1 { font-size: 42px; }
     .hero .sub { font-size: 17px; }
     .why-grid { grid-template-columns: 1fr; gap: 32px; }
     .evidence-card { position: static; }
@@ -1242,7 +1245,7 @@
     .wrap { padding: 0 20px; }
     section.block { padding: 64px 0; }
     .hero { padding: 100px 0 64px; }
-    .hero h1 { font-size: 36px; letter-spacing: -0.03em; }
+    .hero h1 { letter-spacing: -0.03em; }
     .hero h1 .underline::after { height: 10px; bottom: 2px; }
     .hero .sub { font-size: 16px; }
     .hero .badge { font-size: 11px; padding: 6px 12px; }
@@ -1318,16 +1321,16 @@
 
   /* Very small devices (400px and below) */
   @media (max-width: 400px) {
-    .hero h1 { font-size: 30px; }
     .section-title { font-size: 24px; }
     .contact-card h3 { font-size: 24px; }
     .track-card .metric { font-size: 38px; }
     .vision-quote p { font-size: 16px; }
   }
 
-  /* Ultra narrow devices (360px and below) — prevent hero accent line break */
+  /* Ultra-narrow devices (360px and below): tighten letter-spacing on h1 to keep long line in one row */
   @media (max-width: 360px) {
-    .hero h1 { font-size: 26px; }
+    .hero h1 { letter-spacing: -0.06em; }
+    .hero h1 .nowrap-line { letter-spacing: -0.07em; }
   }
 
   /* Prevent any horizontal overflow */
@@ -1358,35 +1361,35 @@
     <span class="n">01</span>
     <span class="t">
       <span class="cat">WHY CHANNEL TALK AX</span>
-      <span class="title">"기술을 통한 비즈니스 성장"—이 관심은 갑자기 생기지 않았습니다.</span>
+      <span class="title">과거의 해자가 무너지는 시대, 지금 저는 로켓 앞에 서 있습니다.</span>
     </span>
   </a>
   <a href="#track" role="menuitem">
     <span class="n">02</span>
     <span class="t">
       <span class="cat">TRACK RECORD</span>
-      <span class="title">숫자로 증명한 만 6년의 궤적.</span>
+      <span class="title">숫자로 기여해온 6년. AI와 만날 때 무엇이 가능할지, 아직 저도 다 모릅니다.</span>
     </span>
   </a>
   <a href="#automation" role="menuitem">
     <span class="n">03</span>
     <span class="t">
       <span class="cat">AUTOMATION · AI IN PRACTICE</span>
-      <span class="title">"이미 만들어본 사람"으로 합류합니다.</span>
+      <span class="title">실무에서 기술을 통해 가치를 만들어냈던 기록들.</span>
     </span>
   </a>
   <a href="#wow" role="menuitem">
     <span class="n">04</span>
     <span class="t">
       <span class="cat">WOW MOMENTS</span>
-      <span class="title">AI로 "이게 가능하다고?"라고 느꼈던 순간들.</span>
+      <span class="title">그러나 AI는 급속도로 발전했고, 위기감은 저를 멈추게 하는 대신 움직이게 했습니다.</span>
     </span>
   </a>
   <a href="#future" role="menuitem">
     <span class="n">05</span>
     <span class="t">
-      <span class="cat">WHAT I WANT TO BUILD AT AX</span>
-      <span class="title">AX에서 하고 싶은 일은 이미 제 안에 있습니다.</span>
+      <span class="cat">WHAT I HOPE TO BUILD AT AX</span>
+      <span class="title">거창한 포부 대신, 솔직한 기대입니다.</span>
     </span>
   </a>
 </div>
@@ -1430,20 +1433,20 @@
       CHANNEL TALK · AX CONSULTANT · APPLICATION 2026
     </div>
     <h1>
-      AI로 일하는 방식을<br>
-      <span class="underline">바꾸는 일,</span><br>
-      <span class="accent">이미 하고 있습니다.</span>
+      <span class="underline">제 지난 6년이</span>, AI로 인해<br>
+      <span class="nowrap-line">무력해질 수 있겠다고 느꼈습니다.</span><br>
+      <span class="accent">그래서 움직이기 시작했습니다.</span>
     </h1>
     <p class="sub">
       영업기획 · 데이터 분석가 · 디지털 마케터로 <strong>만 6년</strong>.<br>
-      숫자로 비즈니스 성장을 증명하고, 코드로 업무 방식을 바꿔왔습니다.<br>
-      이제 그 경험을 <strong>채널톡 AX</strong>에서 이어 나가고 싶습니다.
+      그 동안 숫자로 비즈니스에 기여해 왔지만, 그 경험들의 상당 부분이 <strong>AI 한 번의 '딸깍'</strong>으로 대체될 수 있겠다는 위기감이 분명해졌습니다.<br>
+      두려웠고, 멈추는 대신 움직이기로 했습니다. <strong>이 페이지는 그 움직임의 기록</strong>입니다.
     </p>
     <div class="chips">
       <span class="chip filled">7년차 · 만 6년</span>
-      <span class="chip primary">Data · Automation · AI</span>
+      <span class="chip primary">E-commerce · Consumer Goods · FinTech</span>
+      <span class="chip">Data · Automation · AI</span>
       <span class="chip">Python · SQL · R</span>
-      <span class="chip">채널톡 AX 지원 중</span>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
@@ -1457,29 +1460,29 @@
       WHY CHANNEL TALK AX
     </div>
     <h2 class="section-title">
-      "기술을 통한 비즈니스 성장"—<br>
-      <span class="accent">이 관심은 갑자기 생기지 않았습니다.</span>
+      과거의 해자(垓字)가 무너지는 시대,<br>
+      <span class="accent">지금 저는 로켓 앞에 서 있습니다.</span>
     </h2>
 
     <div class="why-grid">
       <div class="why-prose">
         <p>
-          저는 스스로를 <span class="mark">"데이터 분석을 기반으로 한 비즈니스 개발에 관심이 많은 사람"</span>이라고 소개해 왔습니다. 3년이 지난 지금은 6곳의 직장, 5가지 직무를 거쳤지만, <strong>기저에 깔려 있던 관심사는 그때와 같습니다.</strong>
+          3년 전, 저는 스스로를 <span class="mark">"데이터 분석을 기반으로 한 비즈니스 개발에 관심이 많은 사람"</span>이라고 소개했습니다. Python, 머신러닝 모델링, 광고 운영 — 그 시절 이것들은 분명한 <strong>제 경쟁력</strong>이었습니다.
         </p>
         <p>
-          이 관심은 실무에서 그치지 않았습니다. <strong>총 3회, 49명의 이커머스 초기 사업자분들께 강의</strong>를 진행하며 '커머스 비즈니스 프로세스', '고객 구매 여정', '검색광고 운영'에 대해 설명 드렸고, <span class="quote">총평 4.6점(5점 만점)</span>을 받았습니다. 복잡한 비즈니스 프로세스를 구조화해 고객에게 전달하는 일 — <span class="mark">AX Consultant의 업무와 겹치는 바가 있는 경험</span>이었다고 생각합니다.
+          하지만 지금은 다릅니다. <strong>모델링은 알고리즘 이해 없이도 '딸깍' 몇 번이면 가능</strong>해졌고, 해외 광고 매체는 진작에 머신러닝이 운영한 지 오래입니다. 3년 전엔 특권이었던 제 역량들이, <span class="mark">지금은 AI를 잘 다루는 초년생보다 못할 수도 있게 되었다</span>는 사실을 인정해야 합니다.
         </p>
         <p>
-          그리고 지금, AI가 그 모든 걸 <strong>산업혁명급 속도로 재편</strong>하고 있습니다. 그 변화의 가장 예리한 접점은 고객과 기업이 만나는 순간 — <span class="mark">상담과 운영의 현장</span>이라고 봅니다.
+          그러나 동시에, 예전엔 불가능하다고 생각했던 것들이 손에 잡히기도 합니다. <strong>앱 개발, 데이터 엔지니어링</strong> — 예전의 저라면 혼자는 엄두도 못 냈을 영역들을 AI와 함께 만들기 시작했습니다.
         </p>
         <p>
-          채널톡이 만들고 있는 건 단순한 CS 툴이 아니라, <strong>기업이 고객을 이해하는 방식 자체를 AI로 재설계하는 플랫폼</strong>이라고 읽었습니다. 그 여정에 <span class="quote">AX 컨설턴트로 함께 하고 싶습니다.</span>
+          <strong>위기와 기회가 동시에 있는 이 지점에서, 저는 조만간 날아오를 준비를 하는 로켓 앞에 서 있다고 느낍니다.</strong> 채널톡이 만들고 있는 건 단순한 챗봇이 아니라, <strong>ALF·지식·태스크·규칙을 결합해 상담의 80%를 자동화해 가는 플랫폼</strong>이라고 읽었습니다. 최근 발간하신 〈2026 AI 고객 상담 성공 사례 리포트〉를 보며 그 변화의 폭을 다시 확인했고, <span class="quote">이 로켓의 궤도가 제가 가고 싶은 방향과 정확히 맞닿아 있다</span>고 느꼈습니다. 그래서 지원합니다.
         </p>
       </div>
 
       <aside class="evidence-card">
         <span class="tag">📎 EVIDENCE · 2023</span>
-        <h4>3년 전에도, 이 방향이었습니다</h4>
+        <h4>3년 전, 같은 관심사를 쓰고 있었습니다</h4>
         <p class="snippet">
           "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 5년차 직장인이 되기까지 5곳의 직장, 5가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
         </p>
@@ -1501,8 +1504,8 @@
             <div class="lab">총평 평점</div>
           </div>
         </div>
-        <a class="link" href="https://www.linkedin.com/feed/update/urn:li:activity:7060458815221092352/" target="_blank">
-          LinkedIn 원문 보기 →
+        <a class="link" href="https://www.linkedin.com/in/ebralim" target="_blank" rel="noopener noreferrer">
+          LinkedIn 프로필 →
         </a>
       </aside>
     </div>
@@ -1517,11 +1520,12 @@
       TRACK RECORD
     </div>
     <h2 class="section-title">
-      <span class="accent">숫자로 증명한</span><br>
-      만 6년의 궤적.
+      <span class="accent">숫자로 기여해온 6년.</span><br>
+      AI와 만날 때 무엇이 가능할지,<br>
+      아직 저도 다 모릅니다.
     </h2>
     <p class="section-desc">
-      6개 회사를 거치며 일관되게 추구한 한 가지 — 데이터로 비즈니스를 성장시키는 것.
+      6개 회사, 5가지 직무를 거치며 <strong>이커머스·소비재·핀테크 도메인</strong>에서 데이터로 비즈니스에 기여해 왔습니다. 이 궤적이 AX 컨설턴트로서의 완벽한 전제 조건이라고 주장하지 않습니다. 다만 <strong>"데이터를 비즈니스 성장으로 어떻게 연결시키는지"</strong>는 직접, 여러 번 실무에서 다뤄봤다고 말하고 싶습니다.
     </p>
 
     <div class="track-grid">
@@ -1556,7 +1560,7 @@
           <span class="sign">↓</span>20·11<span class="unit">%</span>
         </div>
         <div class="metric-label">CPI 20% ↓ · 회원가입 CPA 11% ↓</div>
-        <div class="desc">금융앱 UA/RE 캠페인 전략 수립 및 운영,<br>식품회사 SVD 협업필터링 기반 개인화 CRM 전략 제안까지 확장.</div>
+        <div class="desc">(AE) 금융앱 UA/RE 캠페인 전략 수립 및 운영,<br>(DA) 협업필터링 기반 CRM 개인화 모델 개발 및 활용 제안.</div>
       </div>
 
       <div class="track-card current">
@@ -1581,11 +1585,12 @@
       AUTOMATION · AI IN PRACTICE
     </div>
     <h2 class="section-title">
-      <span class="accent">"이미 만들어본 사람"</span>으로<br>
-      합류합니다.
+      실무에서 <span class="accent">기술로 가치를</span><br>
+      만들어 내었던 기록들.
     </h2>
     <p class="section-desc">
-      AI와 자동화는 개념으로만 아는 게 아닙니다.<br>실무에서 시간과 비용을 실제로 줄여본 경험들이 필요합니다.
+      화려하지 않을지도 모릅니다. 하지만 이게 <strong>제가 현장에서 기여했던 경험들</strong>입니다.<br>
+      자동화하고 개인화하는 과정에서, "기술로 어디의 병목을 해결했을 때 현장에서 반응하는지"를 몸으로 배웠습니다.
     </p>
 
     <div class="auto-list">
@@ -1650,12 +1655,15 @@
       WOW MOMENTS
     </div>
     <h2 class="section-title">
-      AI로 <span class="accent">"이게 가능하다고?"</span><br>
-      라고 느꼈던 순간들.
+      AI의 급격한 발전은 제 경력을 위협했고,<br>
+      위기감은 저를 멈추게 하는 대신<br>
+      <span class="accent">움직이게 했습니다.</span>
     </h2>
     <p class="section-desc">
-      <strong>제가 AI를 쓰면서 스스로 감탄했던 순간들</strong>입니다.<br>
-      "AI의 가능성은 엄청나구나. 머지않아 AI 활용 능력이 곧 시장 지배력이 되겠구나" 라는 확신이 들었습니다.
+      5년 전만 해도 AI 학습은 어려웠고, 해봤다는 경험만으로도 차별점이 되었습니다.<br>
+      그러나 이제 AI 모델들은 빠르게 발전하고, 링크드인에는 AI 선구자들의 글이 쏟아집니다. 솔직히 저는 <strong>그들을 100% 따라가지 못하고 있고</strong>, 아직 모르는 것이 훨씬 많습니다.<br>
+      그러나 가만히 앉아서 위축되는 대신, 직접 해보는 쪽을 택했습니다. 아래는 그 움직임의 결과물들입니다.<br>
+      크고 완성도 높은 성과는 아닐 수 있습니다. 그러나 이는 <strong>제가 이 변화에 진심이라는, 그래서 움직이고 있다는 증거</strong>입니다.
     </p>
 
     <div class="wow-grid">
@@ -1671,7 +1679,7 @@
           <img src="assets/OX-image.png" alt="직접 제작한 OX 이미지 데이터셋 (5종 필기구)" loading="lazy">
         </div>
         <div class="links">
-          <a href="https://github.com/EbraLim/dss_project_DeepLearning_mini" target="_blank">GitHub Repo ↗</a>
+          <a href="https://github.com/EbraLim/dss_project_DeepLearning_mini" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
         </div>
       </div>
 
@@ -1688,7 +1696,7 @@
           </video>
         </div>
         <div class="links">
-          <a href="https://github.com/EbraLim/dss_project_DeepLearning" target="_blank">GitHub Repo ↗</a>
+          <a href="https://github.com/EbraLim/dss_project_DeepLearning" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
           <a href="https://www.youtube.com/watch?v=6U0FsT5lLr8" target="_blank">결과물 보기 ↗</a>
         </div>
       </div>
@@ -1700,6 +1708,7 @@
           <div class="quote">"내가 앱을 만들 수 있다는 것 자체가 wow."</div>
           <h4>미세먼지 알림 앱 개발 (진행중)</h4>
           <p>
+            에어코리아 API로 정보를 받아오는 미세먼지 알림 앱.<br>
             AI로 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 확인했던 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AI가 개인의 역량 범위를 송두리째 바꿀 수 있다는 가능성을 직접 확인했습니다"</strong>
           </p>
         </div>
@@ -1732,39 +1741,40 @@
   <div class="wrap">
     <div class="section-label">
       <span class="num">05</span>
-      WHAT I WANT TO BUILD AT AX
+      WHAT I HOPE TO BUILD AT AX
     </div>
     <h2 class="section-title">
-      <span class="accent">AX에서 하고 싶은 일은</span><br>
-      이미 제 안에 있습니다.
+      거창한 포부 대신,<br>
+      <span class="accent">솔직한 기대입니다.</span>
     </h2>
     <p class="section-desc">
-      막연한 포부가 아닌, 지금까지의 경험을 그대로 이어 나가는 다음 장의 이야기입니다.
+      아직 되지 못한 상태에서, 되고 싶은 방향을 적습니다.<br>
+      다만 이것들은 막연한 소망이 아니라, 지금까지의 경험과 지금 하고 있는 움직임 위에 있습니다.
     </p>
 
     <div class="future-list">
       <div class="future-item">
         <div class="num">1</div>
-        <h4>현장의 "미쳤다"를<br>AI로 증폭하기</h4>
-        <p>업무 자동화로 팀원들이 감탄하고 본질에 집중하던 모습을 볼 때의 짜릿함을, 이번엔 <strong>고객사 현장에서 AI라는 훨씬 큰 지렛대</strong>로 다시 만들고 싶습니다.</p>
+        <h4>문제의 본질을 찾는 안목을<br>AI와 결합하는 사람</h4>
+        <p>기술은 무섭도록 빨라졌지만, <strong>문제를 정의하고 본질을 보는 안목</strong>은 아직 인간의 몫이 남아 있다고 믿습니다. 6년간 비즈니스 문제를 해결해온 제 경험과 지금의 AI가 결합될 때 어떤 가능성이 열릴지, 직접 마주해보고 싶습니다.</p>
       </div>
       <div class="future-item">
         <div class="num">2</div>
-        <h4>AI 기반 성장을<br>선도적으로 설계</h4>
-        <p>AI가 고객사의 <strong>비즈니스 성장의 지렛대</strong>가 되도록. 고객사와 함께 업무 자체를 AI로 재설계하는 역할을 앞서 수행하고 싶습니다.</p>
+        <h4>AI의 쓰임새를<br>보여주는 사람</h4>
+        <p>여전히 누군가에게는 AI란 낯선 무언가, 단순한 번역기에 불과합니다. 이러한 분들께 <strong>"AI로 이렇게까지도 되는구나"</strong>를 깨닫게 할 수 있는 사람이 되고 싶습니다. <strong>ALF가 누적 1,400+ 고객사에서 평균 44.9%, 잘 세팅된 곳에서는 80%+의 해결률</strong>을 만들어내고 있다고 들었습니다. 그 숫자를 더 많은 고객사로 확장하는 데 기여하고 싶습니다.</p>
       </div>
       <div class="future-item">
         <div class="num">3</div>
-        <h4>글로벌로<br>확장하는 여정</h4>
-        <p>일본·미국으로 뻗어가는 채널톡의 글로벌 진출. <strong>비즈니스 영어로 소통 가능한 AX팀원</strong>으로 그 여정에 기여하고 싶습니다.</p>
+        <h4>글로벌로<br>확장하는 여정에 함께</h4>
+        <p>일본·미국으로 뻗어가는 채널톡의 글로벌 진출. <strong>비즈니스 영어로 소통 가능한 AX팀원</strong>으로 그 여정에 참여하고 싶습니다.</p>
       </div>
     </div>
 
     <div class="vision-quote">
       <div class="quote-mark">"</div>
       <p>
-        고객상담 도메인의 <span class="hl">'팔란티어'</span> —<br>
-        그 여정에 합류하고 싶습니다.
+        <span class="hl">빠르게 배워서,</span><br>
+        빠르게 고객의 성장에 기여하겠습니다. 
       </p>
       <span class="attr">— 임현수 · AX Consultant 지원자</span>
     </div>
@@ -1775,20 +1785,20 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-card">
-      <h3>대화로 <span class="accent">이어가고 싶습니다.</span></h3>
-      <p class="sub">과제나 인터뷰 요청은 언제든 환영합니다. 준비되어 있습니다.</p>
+      <h3><span class="accent">대화할 기회</span>를 주시면<br>감사하겠습니다.</h3>
+      <p class="sub">당장은 성에 차지 않으실 수 있습니다. 하지만 누구보다 빠르게 따라잡아 기여할 준비가 되어 있습니다.</p>
       <div class="contact-links">
         <a class="primary" href="mailto:dlagustn1203@gmail.com">✉ dlagustn1203@gmail.com</a>
         <a href="tel:01066893382">☎ 010-6689-3382</a>
-        <a href="https://github.com/EbraLim" target="_blank">GitHub ↗</a>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7060458815221092352/" target="_blank">LinkedIn ↗</a>
+        <a href="https://github.com/EbraLim" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ebralim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 임현수 · Built with <span class="built">Claude Code</span> · Last updated April 19, 2026
+  © 2026 임현수 · Built with <span class="built">Claude Code</span> · Last updated April 23, 2026
 </footer>
 
 <script>
