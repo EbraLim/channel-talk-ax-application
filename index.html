@@ -6,23 +6,21 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="임현수 · Channel Talk AX Consultant 지원">
-<meta property="og:description" content="제 지난 6년이 AI로 인해 무력해질 수 있겠다고 느꼈습니다. 그래서 움직이기 시작했습니다. — 채널톡 AX Consultant 지원.">
-<meta property="og:image" content="https://channel-talk-ax-application.vercel.app/assets/og-image.png">
+<meta property="og:title" content="임현수 · 채널톡 AX Consultant 지원">
+<meta property="og:description" content="구조화하고, 정의하며 진짜 결과를 만들어 왔습니다. 여기에 AI 실행력이 더해진다면.">
+<meta property="og:url" content="">
+<meta property="og:image" content="assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/png">
-<meta property="og:url" content="https://channel-talk-ax-application.vercel.app">
-<meta property="og:site_name" content="임현수 · AX Consultant 지원">
-
-<!-- Twitter -->
+<meta property="og:image:alt" content="임현수 · 채널톡 AX Consultant 지원">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="임현수 · Channel Talk AX Consultant 지원">
-<meta name="twitter:description" content="제 지난 6년이 AI로 인해 무력해질 수 있겠다고 느꼈습니다. 그래서 움직이기 시작했습니다.">
-<meta name="twitter:image" content="https://channel-talk-ax-application.vercel.app/assets/og-image.png">
+<meta name="twitter:title" content="임현수 · 채널톡 AX Consultant 지원">
+<meta name="twitter:description" content="구조화하고, 정의하며 진짜 결과를 만들어 왔습니다. 여기에 AI 실행력이 더해진다면.">
+<meta name="twitter:image" content="assets/og-image.png">
 
-<title>임현수 · Channel Talk AX Consultant 지원</title>
+<title>임현수 · 채널톡 AX Consultant 지원</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
 <style>
   :root {
     --bg: #FFFFFF;
@@ -35,14 +33,13 @@
     --line: #EAEAF0;
     --line-soft: #F0F0F5;
 
-    /* Channel Talk purple palette */
-    --primary: #5C3DFF;           /* main channel purple */
+    --primary: #5C3DFF;
     --primary-dark: #4A30D9;
     --primary-soft: #EFECFF;
     --primary-softer: #F6F4FF;
-    --primary-text: #5C3DFF;
 
     --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,18 +52,25 @@
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
   }
+  a { color: inherit; }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+  }
 
-  /* ─────────── Navigation ─────────── */
+  /* Section anchor offset — keep titles below the floating nav */
+  section[id], div[id] { scroll-margin-top: 88px; }
+
+  /* ────────── Nav ────────── */
   nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--line);
     border-radius: 100px;
-    padding: 10px 10px 10px 24px;
-    display: flex; align-items: center; gap: 20px;
+    padding: 10px 10px 10px 22px;
+    display: flex; align-items: center; gap: 18px;
     font-size: 14px; font-weight: 500;
     z-index: 100;
     box-shadow: 0 4px 24px rgba(92, 61, 255, 0.06);
@@ -76,15 +80,16 @@
   }
   nav > * { flex-shrink: 0; }
   nav .brand {
-    display: flex; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 10px;
     color: var(--ink);
+    font-weight: 600;
     white-space: nowrap;
   }
   nav .brand .logo {
-    width: 24px; height: 24px; border-radius: 6px;
+    width: 26px; height: 26px; border-radius: 7px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 13px; font-weight: 700;
+    color: #fff; font-size: 13px; font-weight: 800;
     flex-shrink: 0;
   }
   nav .sep { width: 1px; height: 16px; background: var(--line); flex-shrink: 0; }
@@ -98,7 +103,7 @@
   }
   nav a.cta:hover { background: var(--primary); }
 
-  /* ─────────── TOC Toggle Button (tablet/mobile only) ─────────── */
+  /* ────────── TOC Toggle Button (tablet/mobile) ────────── */
   nav .toc-toggle {
     background: transparent;
     border: none;
@@ -108,7 +113,7 @@
     font-family: inherit;
     cursor: pointer;
     padding: 6px 10px;
-    display: none;                    /* hidden on desktop by default */
+    display: none;
     align-items: center;
     gap: 6px;
     border-radius: 100px;
@@ -137,12 +142,21 @@
   }
   nav .toc-toggle .toc-label { display: inline; }
 
-  /* Show TOC toggle on tablet/mobile (up to 1200px) */
-  @media (max-width: 1200px) {
+  /* Show TOC toggle on tablet/mobile (≤1199px) */
+  @media (max-width: 1199px) {
     nav .toc-toggle { display: flex; }
+    nav .role { display: none; }
+    nav .sep { display: none; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 8px 8px 8px 16px; gap: 12px; top: 12px; }
+    nav .brand span { display: none; }
+    nav .toc-toggle .toc-label { display: none; }
+    nav .toc-toggle { padding: 8px 10px; }
+    nav a.cta { padding: 8px 14px; font-size: 12px; }
   }
 
-  /* ─────────── TOC Dropdown Menu (used on tablet/mobile) ─────────── */
+  /* ────────── TOC Dropdown Menu ────────── */
   .toc-menu {
     position: fixed;
     top: 80px;
@@ -183,7 +197,7 @@
     color: var(--primary);
   }
   .toc-menu a .n {
-    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
     color: var(--primary);
@@ -194,10 +208,7 @@
     margin-top: 2px;
     line-height: 1;
   }
-  .toc-menu a.active .n {
-    background: var(--primary);
-    color: #fff;
-  }
+  .toc-menu a.active .n { background: var(--primary); color: #fff; }
   .toc-menu a .t {
     display: flex;
     flex-direction: column;
@@ -218,34 +229,27 @@
   }
   .toc-menu a.active .t .cat { color: var(--primary); opacity: 0.8; }
 
-  /* Mobile TOC: edge-to-edge sheet */
   @media (max-width: 600px) {
     .toc-menu {
-      top: 68px;
+      top: 64px;
       left: 12px;
       right: 12px;
       transform: translateY(-8px);
       min-width: 0;
       max-width: none;
       border-radius: 14px;
-      /* override desktop centering */
     }
     .toc-menu.open { transform: translateY(0); }
     .toc-menu a { padding: 14px 12px; }
-    .toc-menu a .t .title { font-size: 14px; }
-
-    /* Simplify nav toggle button on small phones: icon only */
-    nav .toc-toggle .toc-label { display: none; }
-    nav .toc-toggle { padding: 8px 10px; }
   }
 
-  /* ─────────── Side TOC (desktop only, 1200px+) ─────────── */
+  /* ────────── Side TOC (desktop ≥1200px) ────────── */
   .side-toc {
     position: fixed;
     right: 32px;
     top: 50%;
     transform: translateY(-50%);
-    display: none;                    /* hidden by default, shown on large screens */
+    display: none;
     flex-direction: column;
     gap: 6px;
     z-index: 80;
@@ -259,7 +263,6 @@
   @media (min-width: 1200px) {
     .side-toc { display: flex; }
   }
-
   .side-toc a {
     position: relative;
     width: 36px;
@@ -272,8 +275,6 @@
     transition: background 0.2s;
   }
   .side-toc a:hover { background: var(--bg-soft); }
-
-  /* The dot itself */
   .side-toc a .dot {
     width: 8px;
     height: 8px;
@@ -290,8 +291,6 @@
     opacity: 1;
     box-shadow: 0 0 0 4px var(--primary-soft);
   }
-
-  /* Hover label (pill) */
   .side-toc a .label {
     position: absolute;
     right: calc(100% + 12px);
@@ -312,7 +311,7 @@
     gap: 8px;
   }
   .side-toc a .label .n {
-    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
     color: #9B83FF;
     font-weight: 700;
@@ -332,18 +331,7 @@
     transform: translateY(-50%) translateX(0);
   }
 
-  /* ─────────── Hero ─────────── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 0 100px;
-    position: relative;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(92, 61, 255, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 90% 80%, rgba(92, 61, 255, 0.05) 0%, transparent 50%);
-  }
-
-  /* ─────────── Back to top button ─────────── */
+  /* ────────── Back to top button ────────── */
   .to-top {
     position: fixed;
     bottom: 24px;
@@ -378,11 +366,7 @@
     color: #fff;
     box-shadow: 0 8px 24px rgba(92, 61, 255, 0.25);
   }
-  .to-top svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
+  .to-top svg { width: 20px; height: 20px; display: block; }
   @media (max-width: 600px) {
     .to-top {
       bottom: 16px;
@@ -393,16 +377,11 @@
     .to-top svg { width: 18px; height: 18px; }
   }
 
-  /* Section anchor offset — prevent nav from hiding section title when jumping */
-  section[id], div[id="future"] {
-    scroll-margin-top: 88px;
-  }
-
-  /* ─────────── Hero ─────────── */
+  /* ────────── Hero ────────── */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 0 100px;
+    padding: 140px 0 80px;
     position: relative;
     background:
       radial-gradient(circle at 15% 20%, rgba(92, 61, 255, 0.08) 0%, transparent 50%),
@@ -430,23 +409,15 @@
   }
 
   .hero h1 {
-    font-size: clamp(22px, 4.5vw, 72px);
+    font-size: clamp(34px, 5.5vw, 68px);
     font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.04em;
-    margin-bottom: 40px;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
+    margin-bottom: 32px;
     color: var(--ink);
   }
-  .hero h1 .accent {
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-    white-space: nowrap;
-  }
-  .hero h1 .nowrap-line {
-    display: inline-block;
-    white-space: nowrap;
-  }
+  .hero h1 .accent { color: var(--primary); }
+  .hero h1 .nowrap-line { display: inline-block; white-space: nowrap; }
   .hero h1 .underline {
     position: relative;
     display: inline-block;
@@ -464,54 +435,71 @@
   .hero .sub {
     font-size: 19px;
     color: var(--ink-soft);
-    max-width: 620px;
+    max-width: 820px;
     line-height: 1.7;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
     font-weight: 500;
   }
   .hero .sub strong { color: var(--ink); font-weight: 700; }
 
-  .hero .chips {
+  /* Info chips — informational labels (visually distinct from clickable) */
+  .info-chips {
     display: flex; gap: 10px; flex-wrap: wrap;
   }
-  .chip {
-    padding: 10px 16px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 100px;
+  .info-chip {
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--ink-2);
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    cursor: default;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
-  .chip.filled {
-    background: var(--ink); color: #fff; border-color: var(--ink);
-  }
-  .chip.primary {
-    background: var(--primary-soft); color: var(--primary); border-color: transparent;
+  .info-chip::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--ink-mute);
+    flex-shrink: 0;
   }
 
   .scroll-hint {
-    position: absolute; bottom: 40px; left: 40px;
-    font-size: 12px; font-weight: 600;
+    position: absolute; bottom: 30px; left: 32px;
+    font-size: 11px; font-weight: 700;
     color: var(--ink-mute);
     display: flex; align-items: center; gap: 10px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
   }
   .scroll-hint::before {
     content: ''; width: 32px; height: 1px; background: var(--ink-mute);
   }
+  @media (max-width: 600px) {
+    .hero { padding: 110px 0 60px; }
+    .hero h1 { margin-bottom: 24px; }
+    .hero .sub { font-size: 17px; margin-bottom: 32px; }
+    .scroll-hint { display: none; }
+  }
 
-  /* ─────────── Section Base ─────────── */
-  section.block { padding: 140px 0; }
+  /* ────────── Section Base ────────── */
+  section.block { padding: 96px 0; }
   section.block.soft { background: var(--bg-soft); }
   section.block.purple { background: var(--bg-section); }
+  @media (max-width: 600px) {
+    section.block { padding: 72px 0; }
+  }
 
   .section-label {
     display: inline-flex; align-items: center; gap: 10px;
     font-size: 13px;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     letter-spacing: 0.04em;
   }
   .section-label .num {
@@ -521,38 +509,633 @@
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: 700;
+    font-family: var(--font-mono);
   }
 
   .section-title {
-    font-size: clamp(34px, 4.8vw, 56px);
+    font-size: clamp(28px, 4.2vw, 48px);
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.035em;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
     margin-bottom: 20px;
-    max-width: 860px;
+    max-width: 820px;
     color: var(--ink);
   }
   .section-title .accent { color: var(--primary); }
   .section-desc {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--ink-soft);
-    max-width: 680px;
-    line-height: 1.7;
-    margin-bottom: 72px;
+    max-width: 720px;
+    line-height: 1.75;
+    margin-bottom: 48px;
     font-weight: 500;
+  }
+  .section-desc strong { color: var(--ink); font-weight: 700; }
+
+  /* ────────── Cases ────────── */
+  .cases {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .case {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.25s, transform 0.25s;
+  }
+  .case:hover {
+    border-color: rgba(92, 61, 255, 0.35);
+    box-shadow: 0 8px 28px rgba(92, 61, 255, 0.08);
+    transform: translateY(-2px);
+  }
+  .case.open {
+    border-color: var(--primary);
+    box-shadow: 0 12px 32px rgba(92, 61, 255, 0.1);
   }
 
-  /* ─────────── Why ─────────── */
-  .why-grid {
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px;
+  .case-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .case-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.25s, color 0.25s;
+  }
+  .case.open .case-num { background: var(--primary); color: #fff; }
+  .case-head-text { min-width: 0; }
+  .case-capability {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .case-title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .case-meta {
+    display: flex; gap: 8px; align-items: center;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+  .case-meta .pill {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .case-meta .pill.metric {
+    background: var(--primary-softer);
+    border-color: transparent;
+    color: var(--primary);
+  }
+  .case-meta .pill.placeholder {
+    background: #FFF8E1;
+    border-color: transparent;
+    color: #B07900;
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .case-toggle {
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 8px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--bg-soft);
+    padding: 10px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .case:hover .case-toggle {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .case.open .case-toggle {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .case-toggle .arrow {
+    width: 14px; height: 14px;
+    transition: transform 0.3s ease;
+  }
+  .case.open .case-toggle .arrow { transform: rotate(180deg); }
+  .case-toggle .label-closed { display: inline; }
+  .case-toggle .label-open { display: none; }
+  .case.open .case-toggle .label-closed { display: none; }
+  .case.open .case-toggle .label-open { display: inline; }
+
+  .case-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+  .case.open .case-body { grid-template-rows: 1fr; }
+  .case-body-inner { overflow: hidden; min-height: 0; }
+  .case-body-content {
+    padding: 28px 32px 32px 32px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .sbi {
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .sbi-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
     align-items: start;
   }
-  .why-prose { max-width: 580px; }
-  .why-prose p {
-    font-size: 18px; line-height: 1.8; color: var(--ink-2);
-    margin-bottom: 24px;
+  .sbi-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-soft);
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    align-self: start;
+  }
+  .sbi-text {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--ink-2);
     font-weight: 500;
   }
+  .sbi-text strong { color: var(--ink); font-weight: 700; }
+  .sbi-text .placeholder-inline {
+    background: #FFF8E1;
+    color: #B07900;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .sbi-text .mark {
+    background: linear-gradient(180deg, transparent 62%, var(--primary-soft) 62%);
+    padding: 0 2px;
+    color: var(--ink); font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    .case-header {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+      padding: 22px 22px;
+    }
+    .case-num { width: 38px; height: 38px; font-size: 14px; }
+    .case-title { font-size: 17px; }
+    .case-toggle {
+      grid-column: 1 / -1;
+      justify-content: center;
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+    .case-body-content { padding: 24px 22px; }
+    .sbi-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .sbi-label { justify-self: start; }
+    .sbi-text { font-size: 14.5px; }
+  }
+
+  /* ────────── Process Map · Intervention Points ────────── */
+  .process-map {
+    margin-bottom: 32px;
+    padding: 28px 24px 24px;
+    background: var(--bg-soft);
+    border-radius: 16px;
+    border: 1px solid var(--line-soft);
+  }
+  .process-map-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .process-map-header::before {
+    content: '';
+    width: 4px; height: 14px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  .process-map-header .small-note {
+    margin-left: auto;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    text-transform: none;
+    font-family: var(--font);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .process-map-header .small-note .swatch {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+
+  /* Each "column" holds a step + (optional) callout vertically */
+  .pm-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .pm-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+  }
+  .pm-step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+  }
+  .pm-col.intervention .pm-step {
+    background: var(--primary-soft);
+    border-color: var(--primary);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 4px 12px rgba(92, 61, 255, 0.1);
+  }
+  .pm-step-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .pm-col.intervention .pm-step-name { color: var(--primary-dark); }
+  .pm-step-meta {
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .pm-col.intervention .pm-step-meta { color: var(--primary); opacity: 0.85; }
+
+  /* Callout sits directly below the step, no gap */
+  .pm-callout {
+    background: #fff;
+    border: 1px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(92, 61, 255, 0.06);
+  }
+
+  .pm-callout-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pm-callout-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .pm-callout-label::before {
+    font-family: var(--font);
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 800;
+  }
+  .pm-callout-label.problem { color: var(--ink-mute); }
+  .pm-callout-label.problem::before { content: '×'; color: var(--ink-mute); }
+  .pm-callout-label.solution { color: var(--primary); }
+  .pm-callout-label.solution::before { content: '✓'; color: var(--primary); }
+
+  .pm-callout-text {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+  .pm-callout-text strong { color: var(--ink); font-weight: 700; }
+  .pm-callout-text .hi {
+    background: linear-gradient(180deg, transparent 60%, var(--primary-soft) 60%);
+    padding: 0 2px;
+    color: var(--ink-2); font-weight: 600;
+  }
+  .pm-callout-divider {
+    height: 1px;
+    background: var(--line-soft);
+    margin: 4px 0 2px;
+  }
+
+  /* Energy redistribution row (Case 02) */
+  .pm-energy {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .pm-energy-cell {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(92, 61, 255, 0.18);
+    border-radius: 8px;
+    padding: 8px 6px 7px;
+    text-align: center;
+  }
+  .pm-energy-cell.up {
+    background: var(--primary-soft);
+    border-color: transparent;
+  }
+  .pm-energy-cell .ec-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .pm-energy-cell .ec-pair {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    line-height: 1;
+  }
+  .pm-energy-cell .ec-was {
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .pm-energy-cell .ec-arrow {
+    color: var(--primary);
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .pm-energy-cell .ec-now {
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  /* Mobile: each column stacks; gaps appear between them */
+  @media (max-width: 720px) {
+    .process-map { padding: 22px 18px 20px; }
+    .pm-grid {
+      grid-auto-flow: row;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .pm-step { padding: 14px 16px 12px; }
+    .pm-step-name { font-size: 13.5px; }
+    .pm-callout { padding: 14px 16px 16px; }
+    .pm-callout-text { font-size: 12.5px; }
+    .process-map-header { flex-wrap: wrap; gap: 8px 10px; }
+    .process-map-header .small-note { margin-left: 0; }
+  }
+
+
+  /* ────────── Model Breakdown (Case 03 bonus track) ────────── */
+  .model-breakdown {
+    margin-top: 28px;
+    border-top: 1px dashed var(--line);
+    padding-top: 24px;
+  }
+  .model-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1px dashed var(--primary);
+    color: var(--primary);
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .model-toggle:hover {
+    background: var(--primary-soft);
+    border-style: solid;
+  }
+  .model-toggle .arrow {
+    width: 14px; height: 14px;
+    transition: transform 0.3s ease;
+  }
+  .model-breakdown.open .model-toggle .arrow {
+    transform: rotate(180deg);
+  }
+  .model-toggle .label-closed { display: inline; }
+  .model-toggle .label-open { display: none; }
+  .model-breakdown.open .model-toggle .label-closed { display: none; }
+  .model-breakdown.open .model-toggle .label-open { display: inline; }
+
+  .model-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s ease;
+    margin-top: 0;
+  }
+  .model-breakdown.open .model-content {
+    grid-template-rows: 1fr;
+    margin-top: 24px;
+  }
+  .model-content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .model-intro {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 720px;
+    font-weight: 500;
+    padding: 14px 16px;
+    background: var(--primary-softer);
+    border-radius: 10px;
+    border-left: 3px solid var(--primary);
+  }
+  .model-intro strong { color: var(--ink); font-weight: 700; }
+
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .chart-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+  .chart-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+  .chart-step .num {
+    background: var(--primary-soft);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  .chart-card-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    min-height: 34px;
+  }
+  .chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chart-caption {
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-weight: 500;
+  }
+  .chart-caption strong { color: var(--ink); font-weight: 700; }
+
+  /* Legend (only on cards that have forecast portion) */
+  .chart-legend {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+  .chart-legend .lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .chart-legend .lg-line {
+    width: 14px; height: 2px; border-radius: 2px;
+    background: var(--primary);
+  }
+  .chart-legend .lg-line.dashed {
+    background: transparent;
+    border-top: 2px dashed var(--primary);
+    height: 0;
+    opacity: 0.7;
+  }
+
+  .model-conclusion {
+    margin-top: 22px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, var(--primary-soft) 0%, var(--primary-softer) 100%);
+    border-radius: 12px;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    font-weight: 500;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .model-conclusion .icon {
+    color: var(--primary);
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 1px;
+  }
+  .model-conclusion strong { color: var(--primary-dark); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .chart-grid { grid-template-columns: repeat(2, 1fr); }
+    .chart-card-title { min-height: 0; }
+  }
+  @media (max-width: 520px) {
+    .chart-grid { grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ────────── Why ────────── */
+  .why-prose { max-width: 760px; }
+  /* In the Why section, the lead-in (section-desc) connects directly to the prose,
+     so we override its bottom margin to match inter-paragraph spacing in why-prose. */
+  #why .section-desc { margin-bottom: 26px; }
+  .why-prose p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--ink-2);
+    margin-bottom: 26px;
+    font-weight: 500;
+  }
+  .why-prose p:last-child { margin-bottom: 0; }
   .why-prose p strong { color: var(--ink); font-weight: 700; }
   .why-prose p .mark {
     background: linear-gradient(180deg, transparent 62%, var(--primary-soft) 62%);
@@ -563,791 +1146,303 @@
     font-weight: 700;
     color: var(--primary);
   }
+  @media (max-width: 600px) {
+    .why-prose p { font-size: 16.5px; line-height: 1.8; }
+  }
 
-  .evidence-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 32px;
-    position: sticky; top: 100px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  }
-  .evidence-card .tag {
-    display: inline-block;
-    background: var(--primary-soft);
-    color: var(--primary);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .evidence-card h4 {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
-  .evidence-card .snippet {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    padding: 16px;
-    background: var(--bg-soft);
-    border-radius: 12px;
-    border-left: 3px solid var(--primary);
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-  .evidence-card .meta-row {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; color: var(--ink-mute); font-weight: 600;
-    margin-bottom: 16px;
-  }
-  .evidence-card .stat-row {
-    display: flex; gap: 16px;
-    margin-bottom: 20px;
-    padding: 16px;
-    background: var(--bg-soft);
-    border-radius: 12px;
-  }
-  .evidence-card .stat {
-    flex: 1;
-    text-align: center;
-  }
-  .evidence-card .stat .num {
-    font-size: 22px; font-weight: 800;
-    color: var(--primary);
-    line-height: 1.2;
-  }
-  .evidence-card .stat .lab {
-    font-size: 11px; color: var(--ink-mute);
-    font-weight: 600;
-    margin-top: 2px;
-  }
-  .evidence-card a.link {
-    display: inline-flex; align-items: center; gap: 6px;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 14px;
-    background: var(--primary-soft);
-    border-radius: 10px;
-    width: 100%;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-  .evidence-card a.link:hover { background: var(--primary); color: #fff; }
-
-  /* ─────────── Track Record ─────────── */
-  .track-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-  }
-  .track-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 36px;
+  /* ────────── Side Project Bonus Card (in Why section) ────────── */
+  .side-project {
+    margin: 32px 0 36px;
+    background: linear-gradient(135deg, var(--primary-softer) 0%, #FFFFFF 100%);
+    border: 1px solid var(--primary-soft);
+    border-radius: 16px;
+    padding: 24px 28px;
+    max-width: 760px;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   }
-  .track-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -10px rgba(92, 61, 255, 0.12);
-    border-color: var(--primary-soft);
-  }
-  .track-card .period {
-    font-size: 12px;
-    color: var(--ink-mute);
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-  }
-  .track-card .company {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 4px;
-    color: var(--ink);
-  }
-  .track-card .role {
-    font-size: 14px;
-    color: var(--ink-soft);
-    font-weight: 500;
-    margin-bottom: 28px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .track-card .metric {
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    color: var(--ink);
-    margin-bottom: 10px;
-    display: flex; align-items: baseline; gap: 4px;
-  }
-  .track-card .metric .sign {
-    font-size: 32px; color: var(--primary);
-    font-weight: 700;
-  }
-  .track-card .metric .unit {
-    font-size: 28px; color: var(--primary);
-    font-weight: 700;
-  }
-  .track-card .metric-label {
-    font-size: 14px; color: var(--ink-soft);
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .track-card .desc {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-  }
-
-  .track-card.current {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink);
-    grid-column: span 1;
-  }
-  .track-card.current:hover {
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px -10px rgba(92, 61, 255, 0.3);
-  }
-  .track-card.current .period,
-  .track-card.current .role,
-  .track-card.current .metric-label,
-  .track-card.current .desc { color: rgba(255,255,255,0.65); }
-  .track-card.current .company,
-  .track-card.current .metric { color: #fff; }
-  .track-card.current .role { border-bottom-color: rgba(255,255,255,0.15); }
-  .track-card.current .metric .sign,
-  .track-card.current .metric .unit { color: #9B83FF; }
-  .track-card.current .metric {
-    font-size: 40px;
-    line-height: 1.1;
-  }
-  .track-card.current .badge {
-    position: absolute; top: 24px; right: 24px;
+  .side-project::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 22px; bottom: 22px;
+    width: 3px;
     background: var(--primary);
-    color: #fff;
+    border-radius: 0 2px 2px 0;
+  }
+  .side-project-label {
+    font-family: var(--font-mono);
     font-size: 11px;
-    padding: 6px 12px;
-    border-radius: 100px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .track-card.current .badge::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: #fff; animation: pulse-white 2s infinite;
-  }
-  @keyframes pulse-white {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  /* ─────────── Automation ─────────── */
-  .auto-list {
-    display: flex; flex-direction: column;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .auto-row {
-    display: grid;
-    grid-template-columns: 80px 1fr auto;
-    gap: 32px; align-items: center;
-    padding: 32px 36px;
-    border-bottom: 1px solid var(--line-soft);
-    transition: background 0.3s;
-  }
-  .auto-row:last-child { border-bottom: none; }
-  .auto-row:hover { background: var(--primary-softer); }
-  .auto-row .num {
-    font-size: 13px;
     color: var(--primary);
-    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .auto-row .content h4 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-    color: var(--ink);
+  .side-project-label::before {
+    content: '◆';
+    font-size: 9px;
+    color: var(--primary);
   }
-  .auto-row .content p {
-    font-size: 15px;
+  .side-project-quote {
+    font-size: 14.5px;
     color: var(--ink-soft);
     line-height: 1.6;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-weight: 500;
   }
-  .auto-row .content p .where {
-    display: inline-block;
+  .side-project-quote::before { content: '"'; color: var(--primary); font-size: 18px; font-weight: 700; margin-right: 2px; }
+  .side-project-quote::after { content: '"'; color: var(--primary); font-size: 18px; font-weight: 700; margin-left: 2px; }
+  .side-project-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .side-project-info {
+    min-width: 0;
+  }
+  .side-project-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .side-project-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .side-project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .side-project-meta .pill {
     font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
     background: var(--bg-soft);
-    color: var(--ink-mute);
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-weight: 600;
-    margin-left: 6px;
-    vertical-align: middle;
+    border: 1px solid var(--line);
+    padding: 3px 9px;
+    border-radius: 100px;
   }
-  .auto-row .impact {
-    text-align: right;
-    white-space: nowrap;
-  }
-  .auto-row .impact .big {
-    font-size: 28px;
-    font-weight: 800;
+  .side-project-meta .pill.metric {
+    background: var(--primary-soft);
     color: var(--primary);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    border-color: transparent;
+    font-family: var(--font-mono);
   }
-  .auto-row .impact .small {
-    font-size: 12px;
-    color: var(--ink-mute);
-    font-weight: 600;
+
+  /* Diagram block within the side-project card */
+  .side-project-diagram {
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    padding: 18px 16px 14px;
     margin-top: 4px;
   }
-
-  /* ─────────── Wow Moments ─────────── */
-  .wow-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
-  }
-  .wow-card {
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 36px;
-    border-radius: 20px;
-    position: relative;
-    display: flex; flex-direction: column;
-    min-height: 320px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .wow-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -10px rgba(92, 61, 255, 0.1);
-  }
-  .wow-card .tag {
-    display: inline-flex;
-    background: var(--primary-soft);
-    color: var(--primary);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 11px;
+  .side-project-diagram-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    margin-bottom: 20px;
-    align-self: flex-start;
-  }
-  .wow-card .quote {
-    font-size: 17px;
-    color: var(--primary);
-    font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    padding-left: 16px;
-    border-left: 3px solid var(--primary);
-  }
-  .wow-card h4 {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    line-height: 1.3;
-    color: var(--ink);
-  }
-  .wow-card p {
-    font-size: 15px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    flex: 1;
-  }
-  .wow-card p strong { color: var(--ink); font-weight: 700; }
-
-  .wow-card .links {
-    display: flex; gap: 12px; margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line-soft);
-    flex-wrap: wrap;
-  }
-  .wow-card .links a {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--primary);
-    text-decoration: none;
-    padding: 8px 14px;
-    background: var(--primary-soft);
-    border-radius: 8px;
-    transition: background 0.2s;
-  }
-  .wow-card .links a:hover {
-    background: var(--primary); color: #fff;
-  }
-
-  /* App Card — special style with screenshots */
-  .wow-card.app-card {
-    background: linear-gradient(155deg, var(--primary-softer) 0%, #fff 60%);
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    padding: 40px;
-    align-items: center;
-  }
-  .wow-card.app-card .app-content { display: flex; flex-direction: column; }
-  .wow-card.app-card .app-screens {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  .wow-card.app-card .app-screens .screen-frame {
-    aspect-ratio: 786 / 1728;
-    background: #fff;
-    border-radius: 16px;
-    border: 1px solid var(--line);
-    box-shadow: 0 12px 30px -8px rgba(92, 61, 255, 0.2);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .wow-card.app-card .app-screens .screen-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-  }
-
-  /* Pipeline snapshot — horizontal architecture diagram inside Claude Code card */
-  .data-pipeline-snapshot {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px dashed var(--line);
-  }
-  .data-pipeline-snapshot .pipeline-frame {
-    aspect-ratio: 1076 / 647;
-    width: 100%;
-    background: #0D0D10;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    box-shadow: 0 8px 24px -8px rgba(92, 61, 255, 0.15);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .data-pipeline-snapshot .pipeline-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  .data-pipeline-snapshot .caption {
-    margin-top: 12px;
-    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--ink-mute);
-    line-height: 1.6;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .side-project-diagram-label::before {
+    content: '▸';
+    color: var(--primary);
+    font-size: 10px;
+  }
+  .side-project-diagram-label .hint {
+    margin-left: auto;
+    color: var(--ink-mute);
+    font-family: var(--font);
     font-weight: 500;
-    font-style: italic;
-    text-align: center;
+    font-size: 10.5px;
+    letter-spacing: 0.01em;
+    text-transform: none;
   }
-  .data-pipeline-snapshot .caption code {
-    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
-    font-size: 12px;
-    background: var(--bg-soft);
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: var(--ink-2);
-    font-style: normal;
-    font-weight: 600;
-  }
-
-  /* Media slot inside wow-card (OX image, YOLO video) */
-  .wow-card .media {
-    margin-top: 18px;
-    margin-bottom: 18px;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--line);
-    background: var(--bg-soft);
-  }
-  .wow-card .media img,
-  .wow-card .media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .side-project-diagram svg {
     display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
   }
 
-  /* ─────────── Future (dark) ─────────── */
-  .future-wrap {
+  /* Bottom-centered GitHub CTA */
+  .side-project-cta-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .side-project-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: var(--ink);
     color: #fff;
-    padding: 140px 0;
+    padding: 11px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .side-project-cta:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
+  }
+  .side-project-cta::after {
+    content: '↗';
+    font-size: 13px;
+  }
+  @media (max-width: 600px) {
+    .side-project { padding: 22px 22px; margin: 28px 0; }
+    .side-project-diagram { padding: 14px 10px 12px; }
+    .side-project-diagram-label { flex-wrap: wrap; gap: 4px 8px; }
+    .side-project-diagram-label .hint { margin-left: 0; flex-basis: 100%; }
+  }
+
+  /* ────────── Closing ────────── */
+  .closing {
+    background: linear-gradient(135deg, #1A1530 0%, #2A1F4D 50%, #1A1530 100%);
+    color: #fff;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
   }
-  .future-wrap::before {
+  .closing::before {
     content: '';
     position: absolute;
-    top: -50%; right: -20%;
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(92, 61, 255, 0.25) 0%, transparent 60%);
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(92, 61, 255, 0.3) 0%, transparent 60%);
     pointer-events: none;
   }
-  .future-wrap .wrap { position: relative; }
-  .future-wrap .section-label { color: #9B83FF; }
-  .future-wrap .section-label .num { background: var(--primary); }
-  .future-wrap .section-title { color: #fff; }
-  .future-wrap .section-title .accent { color: #9B83FF; }
-  .future-wrap .section-desc { color: rgba(255,255,255,0.7); }
-
-  .future-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .future-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 32px;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .future-item:hover {
-    background: rgba(92, 61, 255, 0.15);
-    border-color: var(--primary);
-  }
-  .future-item .num {
-    display: inline-flex;
-    background: var(--primary);
-    color: #fff;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    align-items: center; justify-content: center;
-    font-size: 15px; font-weight: 800;
-    margin-bottom: 20px;
-  }
-  .future-item h4 {
-    font-size: 22px;
+  .closing .wrap { position: relative; z-index: 1; }
+  .closing .section-label { color: #B5A8FF; }
+  .closing .section-label .num { background: #B5A8FF; color: #1A1530; }
+  .closing h2 {
+    font-size: clamp(28px, 4.2vw, 48px);
     font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 14px;
-    color: #fff;
-    letter-spacing: -0.02em;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    max-width: 820px;
   }
-  .future-item p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-  }
-  .future-item p strong { color: #fff; }
-
-  .vision-quote {
-    margin-top: 72px;
-    padding: 48px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 24px;
-    position: relative;
-  }
-  .vision-quote .quote-mark {
-    position: absolute;
-    top: -28px; left: 32px;
-    background: var(--ink);
-    color: var(--primary);
-    font-size: 64px;
-    font-weight: 800;
-    padding: 0 14px;
-    line-height: 1;
-    height: 56px;
-    display: flex;
-    align-items: center;
-  }
-  .vision-quote p {
-    font-size: clamp(22px, 2.4vw, 30px);
-    font-weight: 700;
-    line-height: 1.5;
-    color: #fff;
-    letter-spacing: -0.02em;
-  }
-  .vision-quote p .hl { color: #9B83FF; }
-  .vision-quote .attr {
-    display: block;
-    margin-top: 24px;
-    font-size: 13px;
-    color: #9B83FF;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  /* ─────────── Contact ─────────── */
-  .contact {
-    padding: 140px 0 80px;
-    background: var(--bg);
-  }
-  .contact-card {
-    background: linear-gradient(135deg, var(--primary-softer), #fff);
-    border: 1px solid var(--primary-soft);
-    border-radius: 32px;
-    padding: 80px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(92, 61, 255, 0.15), transparent 70%);
-  }
-  .contact-card::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(92, 61, 255, 0.08), transparent 70%);
-  }
-  .contact-card > * { position: relative; }
-  .contact-card h3 {
-    font-size: clamp(32px, 4.4vw, 52px);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    margin-bottom: 16px;
-    color: var(--ink);
-  }
-  .contact-card h3 .accent { color: var(--primary); }
-  .contact-card .sub {
-    font-size: 17px;
-    color: var(--ink-soft);
-    margin-bottom: 48px;
+  .closing h2 .accent { color: #B5A8FF; }
+  .closing .strength {
+    font-size: 19px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 720px;
+    margin-bottom: 56px;
     font-weight: 500;
   }
+  .closing .strength strong { color: #fff; font-weight: 700; }
+  .closing .strength .key {
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(180deg, transparent 60%, rgba(181, 168, 255, 0.28) 60%);
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+
+  .contact-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-width: 720px;
+  }
+  .contact-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .contact-card .sub {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
   .contact-links {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; flex-wrap: wrap; gap: 10px;
   }
   .contact-links a {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #fff;
-    border: 1px solid var(--line);
-    color: var(--ink);
-    padding: 14px 22px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 100px;
+    color: #fff;
+    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    transition: all 0.2s;
   }
   .contact-links a:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-2px);
+    background: #fff;
+    color: var(--ink);
+    border-color: #fff;
+    transform: translateY(-1px);
   }
   .contact-links a.primary {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink);
+    background: #B5A8FF;
+    color: var(--ink);
+    border-color: #B5A8FF;
   }
-  .contact-links a.primary:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
+  .contact-links a.primary:hover { background: #fff; border-color: #fff; }
+
+  @media (max-width: 600px) {
+    .closing { padding: 72px 0; }
+    .contact-card { padding: 28px 24px; border-radius: 20px; }
+    .closing .strength { font-size: 17px; margin-bottom: 40px; }
   }
 
+  /* ────────── Footer ────────── */
   footer {
-    padding: 40px 0;
+    background: #0E0B1A;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 32px 0;
     text-align: center;
-    font-size: 12px;
-    color: var(--ink-mute);
+    font-size: 13px;
     font-weight: 500;
   }
   footer .built {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--primary-soft);
-    color: var(--primary);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-weight: 600;
-    margin: 0 4px;
+    color: #B5A8FF;
+    font-weight: 700;
   }
-
-  /* ─────────── Responsive ─────────── */
-
-  /* Tablet (900px and below) */
-  @media (max-width: 900px) {
-    nav { top: 12px; padding: 8px 8px 8px 16px; font-size: 12px; gap: 10px; }
-    nav .role, nav .sep { display: none; }
-    .wrap { padding: 0 24px; }
-    section.block { padding: 80px 0; }
-    .hero { padding: 120px 0 80px; }
-    .hero .sub { font-size: 17px; }
-    .why-grid { grid-template-columns: 1fr; gap: 32px; }
-    .evidence-card { position: static; }
-    .track-grid { grid-template-columns: 1fr; }
-    .wow-grid { grid-template-columns: 1fr; }
-    .wow-card.app-card {
-      grid-column: span 1;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      padding: 32px;
-    }
-    .wow-card.app-card .app-screens {
-      max-width: 480px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .wow-card[style*="grid-column: span 2"] {
-      grid-column: span 1 !important;
-    }
-    .future-list { grid-template-columns: 1fr; }
-    .auto-row {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 24px 20px;
-    }
-    .auto-row .impact { text-align: left; }
-    .auto-row .num { font-size: 11px; }
-    .contact-card { padding: 56px 28px; }
-
-    .vision-quote {
-      padding: 32px 24px;
-      margin-top: 56px;
-    }
-    .vision-quote .quote-mark {
-      font-size: 44px;
-      top: -20px;
-      left: 20px;
-      padding: 0 10px;
-      height: 40px;
-    }
-    .vision-quote p {
-      font-size: 22px;
-      line-height: 1.5;
-    }
-  }
-
-  /* Mobile (600px and below) */
-  @media (max-width: 600px) {
-    .wrap { padding: 0 20px; }
-    section.block { padding: 64px 0; }
-    .hero { padding: 100px 0 64px; }
-    .hero h1 { letter-spacing: -0.03em; }
-    .hero h1 .underline::after { height: 10px; bottom: 2px; }
-    .hero .sub { font-size: 16px; }
-    .hero .badge { font-size: 11px; padding: 6px 12px; }
-    .hero .chips { gap: 8px; }
-    .chip { padding: 8px 12px; font-size: 12px; }
-
-    .section-title { font-size: 28px; }
-    .section-desc { font-size: 16px; margin-bottom: 48px; }
-
-    .track-card { padding: 28px 24px; }
-    .track-card .company { font-size: 22px; }
-    .track-card .metric { font-size: 44px; }
-    .track-card.current .metric { font-size: 32px; }
-
-    .auto-row { padding: 20px; }
-    .auto-row .content h4 { font-size: 17px; }
-    .auto-row .content p { font-size: 14px; }
-    .auto-row .impact .big { font-size: 22px; }
-
-    .wow-card { padding: 28px 24px; min-height: 0; }
-    .wow-card h4 { font-size: 19px; }
-    .wow-card .quote { font-size: 15px; padding-left: 14px; }
-    .wow-card p { font-size: 14px; }
-    .wow-card.app-card { padding: 28px 24px; }
-
-    .data-pipeline-snapshot { margin-top: 20px; padding-top: 16px; }
-    .data-pipeline-snapshot .pipeline-frame { border-radius: 10px; }
-    .data-pipeline-snapshot .caption { font-size: 12px; margin-top: 10px; }
-    .data-pipeline-snapshot .caption code { font-size: 11px; }
-
-    .future-item { padding: 28px 24px; }
-    .future-item h4 { font-size: 19px; }
-
-    .vision-quote {
-      padding: 28px 22px;
-      border-radius: 16px;
-      margin-top: 48px;
-    }
-    .vision-quote .quote-mark {
-      font-size: 36px;
-      top: -16px;
-      left: 16px;
-      padding: 0 8px;
-      height: 32px;
-    }
-    .vision-quote p {
-      font-size: 18px;
-      line-height: 1.55;
-    }
-    .vision-quote .attr { font-size: 12px; margin-top: 16px; }
-
-    .contact-card {
-      padding: 48px 24px;
-      border-radius: 20px;
-    }
-    .contact-card h3 { font-size: 28px; }
-    .contact-card .sub { font-size: 15px; margin-bottom: 32px; }
-    .contact-links { gap: 8px; }
-    .contact-links a {
-      padding: 12px 18px;
-      font-size: 13px;
-    }
-
-    footer { padding: 32px 0; font-size: 11px; }
-
-    /* Evidence card on mobile - tighter */
-    .evidence-card { padding: 24px; border-radius: 16px; }
-    .evidence-card h4 { font-size: 18px; }
-    .evidence-card .stat-row { padding: 14px; gap: 8px; }
-    .evidence-card .stat .num { font-size: 18px; }
-    .evidence-card .stat .lab { font-size: 10px; }
-  }
-
-  /* Very small devices (400px and below) */
-  @media (max-width: 400px) {
-    .section-title { font-size: 24px; }
-    .contact-card h3 { font-size: 24px; }
-    .track-card .metric { font-size: 38px; }
-    .vision-quote p { font-size: 16px; }
-  }
-
-  /* Ultra-narrow devices (360px and below): tighten letter-spacing on h1 to keep long line in one row */
-  @media (max-width: 360px) {
-    .hero h1 { letter-spacing: -0.06em; }
-    .hero h1 .nowrap-line { letter-spacing: -0.07em; }
-  }
-
-  /* Prevent any horizontal overflow */
-  html, body { overflow-x: hidden; }
-  img { max-width: 100%; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ────────── Navigation ────────── -->
 <nav>
   <div class="brand">
     <div class="logo">임</div>
     <span>임현수</span>
   </div>
   <span class="sep"></span>
-  <span class="role">Channel Talk AX Consultant 지원</span>
+  <span class="role">채널톡 AX Consultant 지원</span>
   <button class="toc-toggle" aria-expanded="false" aria-controls="toc-menu" aria-label="목차 열기">
     <span class="toc-icon"><span></span><span></span><span></span></span>
     <span class="toc-label">목차</span>
@@ -1355,464 +1450,808 @@
   <a class="cta" href="#contact">연락하기</a>
 </nav>
 
-<!-- TOC Menu -->
-<div class="toc-menu" id="toc-menu" role="menu" aria-labelledby="toc-toggle">
-  <a href="#why" role="menuitem">
+<!-- TOC Dropdown (mobile / tablet) -->
+<div class="toc-menu" id="toc-menu" role="menu">
+  <a href="#cases" role="menuitem">
     <span class="n">01</span>
     <span class="t">
-      <span class="cat">WHY CHANNEL TALK AX</span>
-      <span class="title">과거의 해자가 무너지는 시대, 지금 저는 로켓 앞에 서 있습니다.</span>
+      <span class="cat">WHAT I'VE BUILT</span>
+      <span class="title">구조를 파악하고 근본 원인을 풀어 가치를 만들어 왔습니다.</span>
     </span>
   </a>
-  <a href="#track" role="menuitem">
+  <a href="#why" role="menuitem">
     <span class="n">02</span>
     <span class="t">
-      <span class="cat">TRACK RECORD</span>
-      <span class="title">숫자로 기여해온 6년. AI와 만날 때 무엇이 가능할지, 아직 저도 다 모릅니다.</span>
+      <span class="cat">WHY CHANNEL TALK AX</span>
+      <span class="title">화면 속 멋진 제안서가 아니라, 실제 결과로 이어지는 시스템을 만드는 사람.</span>
     </span>
   </a>
-  <a href="#automation" role="menuitem">
+  <a href="#contact" role="menuitem">
     <span class="n">03</span>
     <span class="t">
-      <span class="cat">AUTOMATION · AI IN PRACTICE</span>
-      <span class="title">실무에서 기술을 통해 가치를 만들어냈던 기록들.</span>
-    </span>
-  </a>
-  <a href="#wow" role="menuitem">
-    <span class="n">04</span>
-    <span class="t">
-      <span class="cat">WOW MOMENTS</span>
-      <span class="title">그러나 AI는 급속도로 발전했고, 위기감은 저를 멈추게 하는 대신 움직이게 했습니다.</span>
-    </span>
-  </a>
-  <a href="#future" role="menuitem">
-    <span class="n">05</span>
-    <span class="t">
-      <span class="cat">WHAT I HOPE TO BUILD AT AX</span>
-      <span class="title">거창한 포부 대신, 솔직한 기대입니다.</span>
+      <span class="cat">LET'S TALK</span>
+      <span class="title">만나서 더 깊이 이야기 나눠보고 싶습니다.</span>
     </span>
   </a>
 </div>
 
 <!-- Side TOC (desktop ≥1200px) -->
 <aside class="side-toc" aria-label="섹션 목차">
-  <a href="#why" aria-label="01 Why Channel Talk AX">
+  <a href="#cases" aria-label="01 What I've Built">
     <span class="dot"></span>
-    <span class="label"><span class="n">01</span>Why Channel Talk AX</span>
+    <span class="label"><span class="n">01</span>What I've Built</span>
   </a>
-  <a href="#track" aria-label="02 Track Record">
+  <a href="#why" aria-label="02 Why Channel Talk AX">
     <span class="dot"></span>
-    <span class="label"><span class="n">02</span>Track Record</span>
+    <span class="label"><span class="n">02</span>Why Channel Talk AX</span>
   </a>
-  <a href="#automation" aria-label="03 Automation · AI in Practice">
+  <a href="#contact" aria-label="03 Let's Talk">
     <span class="dot"></span>
-    <span class="label"><span class="n">03</span>Automation · AI in Practice</span>
-  </a>
-  <a href="#wow" aria-label="04 Wow Moments">
-    <span class="dot"></span>
-    <span class="label"><span class="n">04</span>Wow Moments</span>
-  </a>
-  <a href="#future" aria-label="05 What I Want to Build at AX">
-    <span class="dot"></span>
-    <span class="label"><span class="n">05</span>What I Want to Build at AX</span>
+    <span class="label"><span class="n">03</span>Let's Talk</span>
   </a>
 </aside>
 
-<!-- Back to top button -->
+<!-- Back to top -->
 <button class="to-top" aria-label="맨 위로 이동">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12 19V5M5 12l7-7 7 7"/>
   </svg>
 </button>
 
-<!-- HERO -->
+<!-- ────────── Hero ────────── -->
 <section class="hero">
-  <div class="wrap" style="display: flex; flex-direction: column; align-items: flex-start;">
+  <div class="wrap">
     <div class="badge">
       <span class="dot"></span>
-      CHANNEL TALK · AX CONSULTANT · APPLICATION 2026
+      채널톡 · AX Consultant 지원
     </div>
     <h1>
-      <span class="underline">제 지난 6년이</span>, AI로 인해<br>
-      <span class="nowrap-line">무력해질 수 있겠다고 느꼈습니다.</span><br>
-      <span class="accent">그래서 움직이기 시작했습니다.</span>
+      <span class="nowrap-line">구조화하고, 정의하며</span><br>
+      <span class="underline">진짜 결과를 만들어 왔습니다.</span><br>
+      여기에 <span class="accent">AI 실행력</span>이 더해진다면.
     </h1>
     <p class="sub">
-      영업기획 · 데이터 분석가 · 디지털 마케터로 <strong>만 6년</strong>.<br>
-      그 동안 숫자로 비즈니스에 기여해 왔지만, 그 경험들의 상당 부분이 <strong style="white-space:nowrap;">AI 한 번의 '딸깍'</strong>으로 대체될 수 있겠다는 위기감이 분명해졌습니다.<br>
-      두려웠고, 멈추는 대신 움직이기로 했습니다. <strong>이 페이지는 그 움직임의 기록</strong>입니다.
+      <strong>워크플로우를 구조화하고 병목을 정의해, 솔루션을 직접 구현하며</strong> 결과를 만들어 왔습니다.<br>
+      이제 그 위에 AI 실행력을 얹어, 채널톡 AX Consultant로서 기여하고자 합니다.
     </p>
-    <div class="chips">
-      <span class="chip filled">7년차 · 만 6년</span>
-      <span class="chip primary">E-commerce · Consumer Goods · FinTech</span>
-      <span class="chip">Data · Automation · AI</span>
-      <span class="chip">Python · SQL · R</span>
+    <div class="info-chips" aria-label="지원자 요약 정보">
+      <span class="info-chip">7년차 · 만 6년</span>
+      <span class="info-chip">E-commerce · Consumer Goods · FinTech</span>
+      <span class="info-chip">Data · Automation · AI</span>
     </div>
   </div>
   <div class="scroll-hint">SCROLL</div>
 </section>
 
-<!-- WHY -->
-<section class="block" id="why">
+<!-- ────────── Section 01: What I've Built ────────── -->
+<section class="block soft" id="cases">
   <div class="wrap">
     <div class="section-label">
       <span class="num">01</span>
-      WHY CHANNEL TALK AX
+      WHAT I'VE BUILT
     </div>
     <h2 class="section-title">
-      과거의 해자(垓字)가 무너지는 시대,<br>
-      <span class="accent">지금 저는 로켓 앞에 서 있습니다.</span>
+      구조를 파악하고 근본 원인을 풀어,<br>
+      <span class="accent">가치를 만들어 왔습니다.</span>
     </h2>
+    <p class="section-desc">
+      필드는 달랐지만 문제 해결 로직은 같았습니다.<br>
+      <strong>업무 흐름 구조화 → 병목 발견 및 근본 원인 분석 → 이해관계자 합의 → 솔루션 구현 → 임팩트 검증.</strong>
+    </p>
 
-    <div class="why-grid">
-      <div class="why-prose">
-        <p>
-          3년 전, 저는 스스로를 <span class="mark">"데이터 분석을 기반으로 한 비즈니스 개발에 관심이 많은 사람"</span>이라고 소개했습니다. Python, 머신러닝 모델링, 디지털 광고 운영 — 그 시절 이것들은 분명한 <strong>제 경쟁력</strong>이었습니다.
-        </p>
-        <p>
-          하지만 지금은 다릅니다. <strong>모델링은 알고리즘 이해 없이도 '딸깍' 몇 번이면 가능</strong>해졌고, 해외 광고 매체는 진작에 머신러닝이 운영한 지 오래입니다. 3년 전엔 특권이었던 제 역량들이, <span class="mark">지금은 AI를 잘 다루는 초년생보다 못할 수도 있게 되었다</span>는 사실을 인정해야 합니다.
-        </p>
-        <p>
-          그러나 이러한 위기와 동시에, 예전엔 불가능하다고 생각했던 것들이 손에 잡히기도 합니다. <strong>앱 개발, 데이터 엔지니어링</strong> — 예전의 저라면 혼자는 엄두도 못 냈을 영역들을 AI와 함께 만들기 시작했습니다.
-        </p>
-        <p>
-          <strong>위기와 기회가 동시에 있는 이 지점에서, 저는 조만간 날아오를 준비를 하는 로켓 앞에 서 있다고 느낍니다.</strong> 채널톡이 만들고 있는 건 단순한 챗봇이 아니라, <strong>규칙·지식·태스크를 결합한 AI에이전트로 고객 문제 해결을 자동화하는 플랫폼</strong>이라고 읽었습니다. 최근 발간하신 〈2026 AI 고객 상담 성공 사례 리포트〉를 보며 그 변화의 방향성을 다시 확인했고, <span class="quote">이 로켓의 궤도가 제가 가고 싶은 방향과 정확히 맞닿아 있다</span>고 느꼈습니다. 그래서 지원합니다.
-        </p>
-      </div>
+    <div class="cases">
 
-      <aside class="evidence-card">
-        <span class="tag">📎 EVIDENCE · 2023</span>
-        <h4>3년 전, 같은 관심사를 말하고 있었습니다</h4>
-        <p class="snippet">
-          "저는 '데이터 분석을 기반으로 한 비즈니스 개발'에 관심이 많은 사람입니다. 5년차 직장인이 되기까지 5곳의 직장, 5가지 직무를 경험했지만 그 기저에 깔려있던 관심사는 항상 같았습니다."
-        </p>
-        <div class="meta-row">
-          <span>LinkedIn · 2023</span>
-          <span>이커머스 강의 후기</span>
+      <!-- Case 1: NIVEA -->
+      <article class="case">
+        <div class="case-header" data-toggle="case-1" role="button" tabindex="0" aria-expanded="false" aria-controls="case-1-body">
+          <div class="case-num">01</div>
+          <div class="case-head-text">
+            <div class="case-capability">워크플로우 구조화 · 이해관계자 합의</div>
+            <h3 class="case-title">방향성 없이 관성으로 굴러가던 디스플레이 광고를, 통제 가능한 운영 시스템으로 구체화</h3>
+            <div class="case-meta">
+              <span class="pill">BDF · 재직 중</span>
+              <span class="pill metric">NIVEA DA</span>
+              <span class="pill placeholder">ROAS 유지, 전환매출액 222% ↑</span>
+            </div>
+          </div>
+          <button class="case-toggle" type="button" aria-hidden="true">
+            <span class="label-closed">자세히 보기</span>
+            <span class="label-open">접기</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
         </div>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="num">49명</div>
-            <div class="lab">수강생</div>
-          </div>
-          <div class="stat">
-            <div class="num">3회</div>
-            <div class="lab">세션 진행</div>
-          </div>
-          <div class="stat">
-            <div class="num">4.6/5</div>
-            <div class="lab">총평 평점</div>
+        <div class="case-body" id="case-1-body">
+          <div class="case-body-inner">
+            <div class="case-body-content">
+
+              <!-- Process Map · Intervention Points -->
+              <div class="process-map" aria-label="업무 흐름 진단 및 개선 지점">
+                <div class="process-map-header">
+                  Process Map · Intervention Points
+                  <span class="small-note"><span class="swatch"></span>건드린 지점</span>
+                </div>
+
+                <div class="pm-grid">
+
+                  <div class="pm-col intervention">
+                    <div class="pm-step">
+                      <div class="pm-step-name">소재 제작</div>
+                      <div class="pm-step-meta">Step 1</div>
+                    </div>
+                    <div class="pm-callout">
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label problem">문제</div>
+                        <div class="pm-callout-text">대부분 <strong>검수된 카피·디자인을 재활용</strong>하는 수준 — 새로운 시도 없음</div>
+                      </div>
+                      <div class="pm-callout-divider"></div>
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label solution">조치</div>
+                        <div class="pm-callout-text"><span class="hi">카피·레이아웃·요소 크기 등 다양한 소재 A/B 테스트</span>를 통해 특정 지표 개선</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col intervention">
+                    <div class="pm-step">
+                      <div class="pm-step-name">매체 세팅</div>
+                      <div class="pm-step-meta">Step 2</div>
+                    </div>
+                    <div class="pm-callout">
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label problem">문제</div>
+                        <div class="pm-callout-text">기존에 운영하던 지면을 그대로 유지</div>
+                      </div>
+                      <div class="pm-callout-divider"></div>
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label solution">조치</div>
+                        <div class="pm-callout-text"><span class="hi">고효율 지면/광고상품 발굴 및 다양한 타겟팅 시도</span>로 성과 지표 개선</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col">
+                    <div class="pm-step">
+                      <div class="pm-step-name">광고 Live</div>
+                      <div class="pm-step-meta">Step 3 · 유지</div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col intervention">
+                    <div class="pm-step">
+                      <div class="pm-step-name">결과 확인</div>
+                      <div class="pm-step-meta">Step 4</div>
+                    </div>
+                    <div class="pm-callout">
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label problem">문제</div>
+                        <div class="pm-callout-text">결과 공유로 끝 — <strong>피드백 과정 없음</strong></div>
+                      </div>
+                      <div class="pm-callout-divider"></div>
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label solution">조치</div>
+                        <div class="pm-callout-text">결과 리뷰 및 피드백 시간을 가짐으로써 <span class="hi">개선 선순환 고리</span> 구축</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="sbi">
+                <div class="sbi-row">
+                  <div class="sbi-label">SITUATION</div>
+                  <div class="sbi-text">디스플레이 광고가 명확한 책임자와 방향성 없이 <strong>관성대로 운영</strong>되고 있었고, 성과 또한 정체되어 있었습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">BEHAVIOR</div>
+                  <div class="sbi-text">광고 프로세스를 <span class="mark">End-to-End로 구체화·가시화</span>하고, 성과를 좌우하는 <strong>통제 가능한 3가지 요소(소재 · 광고지면 · 타겟팅)</strong>를 구조화하여 실무자들과 목표를 일치시켰습니다. 이후 각 요소를 단계적으로 디벨롭하며 개선 사이클을 만들었습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">IMPACT</div>
+                  <div class="sbi-text">클릭률 <span class="placeholder-inline">23%</span> 개선, 광고지면 확대 — 결과적으로 ROAS 유지하며 전환매출액 <span class="placeholder-inline">222%</span> 증가.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <a class="link" href="https://www.linkedin.com/in/ebralim" target="_blank" rel="noopener noreferrer">
-          LinkedIn 프로필 →
-        </a>
-      </aside>
+      </article>
+
+      <!-- Case 2: BAT Daily Report -->
+      <article class="case">
+        <div class="case-header" data-toggle="case-2" role="button" tabindex="0" aria-expanded="false" aria-controls="case-2-body">
+          <div class="case-num">02</div>
+          <div class="case-head-text">
+            <div class="case-capability">병목 정의 · 자동화 · 자생 시스템 구축</div>
+            <h3 class="case-title">팀이 문제 본질에 집중할 수 있도록 에너지를 확보해 준 데일리 리포트 자동화</h3>
+            <div class="case-meta">
+              <span class="pill">BAT</span>
+              <span class="pill metric">매일 1~2시간 → 5분</span>
+              <span class="pill">변화에 강한 시스템 구축</span>
+            </div>
+          </div>
+          <button class="case-toggle" type="button" aria-hidden="true">
+            <span class="label-closed">자세히 보기</span>
+            <span class="label-open">접기</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="case-body" id="case-2-body">
+          <div class="case-body-inner">
+            <div class="case-body-content">
+
+              <!-- Process Map · Intervention Points -->
+              <div class="process-map" aria-label="업무 흐름 진단 및 개선 지점">
+                <div class="process-map-header">
+                  Process Map · Intervention Points
+                  <span class="small-note"><span class="swatch"></span>건드린 지점</span>
+                </div>
+
+                <div class="pm-grid">
+
+                  <div class="pm-col">
+                    <div class="pm-step">
+                      <div class="pm-step-name">매체별 raw 다운로드</div>
+                      <div class="pm-step-meta">Step 1 · 유지</div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col intervention">
+                    <div class="pm-step">
+                      <div class="pm-step-name">데이터 병합</div>
+                      <div class="pm-step-meta">Step 2 · 병목 지점</div>
+                    </div>
+                    <div class="pm-callout">
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label problem">문제</div>
+                        <div class="pm-callout-text">소재명 규칙 부재 · Excel 수동 전처리 · 휴먼에러 빈번 · <strong>팀 에너지의 60% 소진</strong> → 분석에 쓸 시간 부족 → 광고주 신뢰 하락</div>
+                      </div>
+                      <div class="pm-callout-divider"></div>
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label solution">조치</div>
+                        <div class="pm-callout-text"><span class="hi">캠페인명/소재명 명명규칙 설계</span> + Python 자동화 + Scalable 코드 + 변화 시 마케터 자체 유지보수</div>
+                      </div>
+
+                      <div class="pm-energy" aria-label="단계별 에너지 비중 변화">
+                        <div class="pm-energy-cell">
+                          <div class="ec-label">다운로드</div>
+                          <div class="ec-pair">
+                            <span class="ec-was">10%</span>
+                            <span class="ec-arrow">→</span>
+                            <span class="ec-now">10%</span>
+                          </div>
+                        </div>
+                        <div class="pm-energy-cell">
+                          <div class="ec-label">병합</div>
+                          <div class="ec-pair">
+                            <span class="ec-was">60%</span>
+                            <span class="ec-arrow">→</span>
+                            <span class="ec-now">5%</span>
+                          </div>
+                        </div>
+                        <div class="pm-energy-cell up">
+                          <div class="ec-label">분석</div>
+                          <div class="ec-pair">
+                            <span class="ec-was">30%</span>
+                            <span class="ec-arrow">→</span>
+                            <span class="ec-now">85%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col">
+                    <div class="pm-step">
+                      <div class="pm-step-name">분석 · 리포트 발송</div>
+                      <div class="pm-step-meta">Step 3 · 핵심 프로세스</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="sbi">
+                <div class="sbi-row">
+                  <div class="sbi-label">SITUATION</div>
+                  <div class="sbi-text">데일리 리포트 작성에 매일 1~2시간이 소요되었고, <strong>보고 시간을 맞추기 위한 조기 출근이 일상</strong>이었습니다. 휴먼에러가 반복되어 광고주 신뢰는 떨어져 갔고, 데이터 가공에 에너지를 쏟다 보니 <strong>업무 본질인 지표 분석과 해결방안 도출에는 충분히 집중하지 못하는</strong> 구조였습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">BEHAVIOR</div>
+                  <div class="sbi-text">여러 광고매체 데이터를 통합하기 위한 <span class="mark">기준과 규칙을 설계</span>하고, 이를 기반으로 리포트 작성 전 과정을 Python으로 자동화했습니다. 또한 <strong>코드 구조와 로직을 교육</strong>해 동료들이 자체적으로 유지보수할 수 있는 시스템을 구축했습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">IMPACT</div>
+                  <div class="sbi-text">조기 출근 제거로 동료 만족도 향상, 휴먼에러 감소로 광고주 신뢰 회복. 팀은 <strong>현상 분석과 성과 개선안 도출</strong>에 집중할 수 있게 되었고, 매체 추가나 간단한 로직 변경은 동료들이 직접 수정해 사용하는 <strong>자생 시스템</strong>이 자리 잡았습니다.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 3: Dongseo Demand Forecasting -->
+      <article class="case">
+        <div class="case-header" data-toggle="case-3" role="button" tabindex="0" aria-expanded="false" aria-controls="case-3-body">
+          <div class="case-num">03</div>
+          <div class="case-head-text">
+            <div class="case-capability">근본 원인 정의 · 새 방법론 도입 · 부서 간 이해 충돌 해결</div>
+            <h3 class="case-title">"감"으로 굴러가던 수요 예측을, 계절성·outlier 분리 기반 모델로 정교화</h3>
+            <div class="case-meta">
+              <span class="pill">동서</span>
+              <span class="pill metric">예측 오차율 -70%+</span>
+              <span class="pill">세일즈·물류 합의</span>
+            </div>
+          </div>
+          <button class="case-toggle" type="button" aria-hidden="true">
+            <span class="label-closed">자세히 보기</span>
+            <span class="label-open">접기</span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="case-body" id="case-3-body">
+          <div class="case-body-inner">
+            <div class="case-body-content">
+
+              <!-- Process Map · Intervention Points -->
+              <div class="process-map" aria-label="업무 흐름 진단 및 개선 지점">
+                <div class="process-map-header">
+                  Process Map · Intervention Points
+                  <span class="small-note"><span class="swatch"></span>건드린 지점</span>
+                </div>
+
+                <div class="pm-grid">
+
+                  <div class="pm-col intervention">
+                    <div class="pm-step">
+                      <div class="pm-step-name">수요 예측</div>
+                      <div class="pm-step-meta">Step 1 · 근본 원인</div>
+                    </div>
+                    <div class="pm-callout">
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label problem">문제</div>
+                        <div class="pm-callout-text">최근 3개월 이동평균값만 고려 — <strong>계절성·outlier 미반영</strong>으로 계절 전환기 재고 부족·과다 발생</div>
+                      </div>
+                      <div class="pm-callout-divider"></div>
+                      <div class="pm-callout-block">
+                        <div class="pm-callout-label solution">조치</div>
+                        <div class="pm-callout-text"><span class="hi">회귀 트렌드 + 월별 계절성 가중치 + outlier 거래처 별도 관리</span>의 3단계 모델로 정교화</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pm-col">
+                    <div class="pm-step">
+                      <div class="pm-step-name">발주</div>
+                      <div class="pm-step-meta">Step 2 · 결과 개선</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="sbi">
+                <div class="sbi-row">
+                  <div class="sbi-label">SITUATION</div>
+                  <div class="sbi-text">최근 평균값만을 고려한 수요 예측으로 인해 <strong>계절 전환기마다 재고가 과다 또는 부족</strong>해지는 문제가 발생했습니다. 부족하면 세일즈에서 판매 차질을, 과다하면 물류에서 보관 부담을 호소하는 등 <strong>양측의 불만이 누적</strong>되고 있었습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">BEHAVIOR</div>
+                  <div class="sbi-text">근본 원인을 <span class="mark">'계절성을 반영하지 못하는 예측 방법'</span>으로 정의하고, 계절성을 반영한 수요예측 모델을 직접 개발·적용했습니다.</div>
+                </div>
+                <div class="sbi-row">
+                  <div class="sbi-label">IMPACT</div>
+                  <div class="sbi-text">예측 오차율 <strong>70% 이상 감소.</strong> 재고 관리 정확도가 개선되며 세일즈와 물류 양쪽의 불만이 해소되었습니다.</div>
+                </div>
+              </div>
+
+              <!-- Model Breakdown (bonus track) -->
+              <div class="model-breakdown" id="model-breakdown">
+                <button class="model-toggle" type="button" aria-expanded="false" aria-controls="model-content">
+                  <span class="label-closed">모델 구조 자세히 보기 (5 steps)</span>
+                  <span class="label-open">모델 구조 접기</span>
+                  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="model-content" id="model-content">
+                  <div class="model-content-inner">
+
+                    <p class="model-intro">
+                      <strong>실제 매출 데이터(1~18개월차)</strong>에서 출발해, 5단계를 거쳐 <strong>19~24개월차 수요를 예측</strong>한 흐름 예시입니다.
+                      각 단계는 직전 단계 위에 한 가지씩 정보를 더하는 방식으로 누적됩니다.
+                    </p>
+
+                    <div class="chart-grid">
+
+                      <!-- Step 1 -->
+                      <div class="chart-card">
+                        <div class="chart-step"><span class="num">01</span>실제 매출</div>
+                        <div class="chart-card-title">원천 데이터 (18개월)</div>
+                        <svg class="chart-svg" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                          <line x1="30" y1="130" x2="470" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <line x1="30" y1="10" x2="30" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <path d="M 30.0,112.9 L 49.1,114.6 L 68.3,107.7 L 87.4,102.6 L 106.5,95.7 L 125.7,27.1 L 144.8,61.4 L 163.9,64.9 L 183.0,35.7 L 202.2,87.1 L 221.3,99.1 L 240.4,109.4 L 259.6,107.7 L 278.7,111.1 L 297.8,100.9 L 317.0,99.1 L 336.1,90.6 L 355.2,22.0"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <text x="30" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">1</text>
+                          <text x="350" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">18</text>
+                        </svg>
+                        <div class="chart-caption">1~18개월차 실제 수요. <strong>특정 월(6·9·18) 스파이크</strong>가 나타남 — B2B 특성상 대량 발주 거래처 영향.</div>
+                      </div>
+
+                      <!-- Step 2 -->
+                      <div class="chart-card">
+                        <div class="chart-step"><span class="num">02</span>Outlier 제거</div>
+                        <div class="chart-card-title">Base demand 분리</div>
+                        <svg class="chart-svg" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                          <line x1="30" y1="130" x2="470" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <line x1="30" y1="10" x2="30" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <path d="M 30.0,112.9 L 49.1,114.6 L 68.3,107.7 L 87.4,102.6 L 106.5,95.7 L 125.7,70.0 L 144.8,61.4 L 163.9,64.9 L 183.0,78.6 L 202.2,87.1 L 221.3,99.1 L 240.4,109.4 L 259.6,107.7 L 278.7,111.1 L 297.8,100.9 L 317.0,99.1 L 336.1,90.6 L 355.2,64.9"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <text x="30" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">1</text>
+                          <text x="350" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">18</text>
+                        </svg>
+                        <div class="chart-caption"><strong>대량 발주 거래처 수요를 별도로 분리</strong>. 모델링은 base demand 위에서 진행.</div>
+                      </div>
+
+                      <!-- Step 3 -->
+                      <div class="chart-card">
+                        <div class="chart-step"><span class="num">03</span>회귀 트렌드</div>
+                        <div class="chart-card-title">장기 추세 추출</div>
+                        <svg class="chart-svg" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                          <line x1="30" y1="130" x2="470" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <line x1="30" y1="10" x2="30" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <!-- Faded base demand for context -->
+                          <path d="M 30.0,112.9 L 49.1,114.6 L 68.3,107.7 L 87.4,102.6 L 106.5,95.7 L 125.7,70.0 L 144.8,61.4 L 163.9,64.9 L 183.0,78.6 L 202.2,87.1 L 221.3,99.1 L 240.4,109.4 L 259.6,107.7 L 278.7,111.1 L 297.8,100.9 L 317.0,99.1 L 336.1,90.6 L 355.2,64.9"
+                                fill="none" stroke="#5C3DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+                          <!-- Trend line -->
+                          <path d="M 30.0,97.6 L 355.2,71.4"
+                                fill="none" stroke="#5C3DFF" stroke-width="2.5" stroke-linecap="round"/>
+                          <text x="30" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">1</text>
+                          <text x="350" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">18</text>
+                        </svg>
+                        <div class="chart-caption">Step 2에 회귀분석을 돌려 <strong>장기 트렌드</strong>를 직선으로 추출.</div>
+                      </div>
+
+                      <!-- Step 4 -->
+                      <div class="chart-card">
+                        <div class="chart-step"><span class="num">04</span>계절성 반영 + 예측</div>
+                        <div class="chart-card-title">24개월차까지 확장</div>
+                        <svg class="chart-svg" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                          <line x1="30" y1="130" x2="470" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <line x1="30" y1="10" x2="30" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <!-- Forecast region background -->
+                          <rect x="364.8" y="10" width="105.2" height="120" fill="#5C3DFF" opacity="0.05"/>
+                          <!-- Vertical split -->
+                          <line x1="364.8" y1="10" x2="364.8" y2="130" stroke="#5C3DFF" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+                          <!-- Actual portion (1-18) solid -->
+                          <path d="M 30.0,113.8 L 49.1,114.7 L 68.3,106.9 L 87.4,100.4 L 106.5,91.4 L 125.7,73.8 L 144.8,65.4 L 163.9,67.4 L 183.0,76.3 L 202.2,81.4 L 221.3,94.1 L 240.4,105.3 L 259.6,104.5 L 278.7,106.4 L 297.8,94.9 L 317.0,85.6 L 336.1,72.9 L 355.2,47.9"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <!-- Forecast portion (18-24) dashed -->
+                          <path d="M 355.2,47.9 L 374.3,36.7 L 393.5,40.5 L 412.6,54.1 L 431.7,62.0 L 450.9,80.2 L 470.0,96.1"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+                          <text x="30" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">1</text>
+                          <text x="355" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">18</text>
+                          <text x="455" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">24</text>
+                          <text x="380" y="22" font-size="9" fill="#5C3DFF" font-weight="700" font-family="JetBrains Mono, monospace">예측 →</text>
+                        </svg>
+                        <div class="chart-legend">
+                          <span class="lg"><span class="lg-line"></span>실제 (1–18M)</span>
+                          <span class="lg"><span class="lg-line dashed"></span>예측 (19–24M)</span>
+                        </div>
+                        <div class="chart-caption">트렌드에 <strong>월별 계절성 가중치</strong>를 곱해 24개월까지 확장. base demand 기준 예측.</div>
+                      </div>
+
+                      <!-- Step 5 -->
+                      <div class="chart-card">
+                        <div class="chart-step"><span class="num">05</span>최종 예측</div>
+                        <div class="chart-card-title">Outlier 거래처 재합산</div>
+                        <svg class="chart-svg" viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                          <line x1="30" y1="130" x2="470" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <line x1="30" y1="10" x2="30" y2="130" stroke="#EAEAF0" stroke-width="1"/>
+                          <!-- Forecast region background -->
+                          <rect x="364.8" y="10" width="105.2" height="120" fill="#5C3DFF" opacity="0.05"/>
+                          <!-- Vertical split -->
+                          <line x1="364.8" y1="10" x2="364.8" y2="130" stroke="#5C3DFF" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+                          <!-- Actual portion (1-18) solid, with outlier spikes -->
+                          <path d="M 30.0,113.8 L 49.1,114.7 L 68.3,106.9 L 87.4,100.4 L 106.5,91.4 L 125.7,31.0 L 144.8,65.4 L 163.9,67.4 L 183.0,33.5 L 202.2,81.4 L 221.3,94.1 L 240.4,105.3 L 259.6,104.5 L 278.7,106.4 L 297.8,94.9 L 317.0,85.6 L 336.1,72.9 L 355.2,10.0"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <!-- Forecast portion (18-24) dashed, with outlier spike at month 21 -->
+                          <path d="M 355.2,10.0 L 374.3,36.7 L 393.5,40.5 L 412.6,11.2 L 431.7,62.0 L 450.9,80.2 L 470.0,96.1"
+                                fill="none" stroke="#5C3DFF" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+                          <text x="30" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">1</text>
+                          <text x="355" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">18</text>
+                          <text x="455" y="138" font-size="9" fill="#9A9AA3" font-family="JetBrains Mono, monospace">24</text>
+                          <text x="380" y="22" font-size="9" fill="#5C3DFF" font-weight="700" font-family="JetBrains Mono, monospace">예측 →</text>
+                        </svg>
+                        <div class="chart-legend">
+                          <span class="lg"><span class="lg-line"></span>실제 (1–18M)</span>
+                          <span class="lg"><span class="lg-line dashed"></span>예측 (19–24M)</span>
+                        </div>
+                        <div class="chart-caption">Step 2에서 분리해뒀던 <strong>대량 발주 거래처의 주기적 수요</strong>를 다시 합산.</div>
+                      </div>
+
+                    </div>
+
+                    <div class="model-conclusion">
+                      <span class="icon">→</span>
+                      <span><strong>최근 3개월 이동평균</strong>으로 굴러가던 기존 방식 대비, <strong>예측 오차율 70%+를 감소</strong>시켰습니다.<br>계절성과 outlier를 분리해 다룬 것이 차별점입니다.</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- TRACK RECORD -->
-<section class="block soft" id="track">
+<!-- ────────── Section 02: Why Channel Talk AX ────────── -->
+<section class="block" id="why">
   <div class="wrap">
     <div class="section-label">
       <span class="num">02</span>
-      TRACK RECORD
+      WHY CHANNEL TALK AX
     </div>
     <h2 class="section-title">
-      <span class="accent">숫자로 기여해온 6년.</span><br>
-      AI와 만날 때 무엇이 가능할지,<br>
-      아직 저도 다 모릅니다.
+      화면 속 멋진 제안서가 아니라,<br>
+      <span class="accent">실제 결과로 이어지는 시스템을 만드는 사람.</span>
     </h2>
     <p class="section-desc">
-      6개 회사, 5가지 직무를 거치며 <strong>이커머스·소비재·핀테크 도메인</strong>에서 데이터로 비즈니스에 기여해 왔습니다. 이 궤적이 AX 컨설턴트로서의 완벽한 전제 조건이라고 주장하지 않습니다. 다만 <strong>"데이터를 비즈니스 성장으로 어떻게 연결시키는지"</strong>는 직접, 여러 번 실무에서 다뤄봤다고 말하고 싶습니다.
+      AX Consultant라는 직무를, 제 언어로 다시 정의해 봤습니다.
     </p>
 
-    <div class="track-grid">
+    <div class="why-prose">
+      <p>
+        제가 이해한 AX Consultant는 <strong>보기 좋은 제안서</strong> 대신, 실제 현실에서 작동하는
+        AI 워크플로우를 <span class="mark">설계 · 제안 · 구현</span>하는 사람입니다.
+        구체적으로는 ALF 같은 채널톡의 AI 기반 제품을 각 고객사의 비즈니스 사이클에
+        자연스럽게 녹여, 고객사가 최고의 성과를 낼 수 있도록 <strong>구조를 설계하고
+        방향을 제시하며, 결과를 함께 만들어가는 사람</strong>이라고 보았습니다.
+      </p>
+      <p>
+        저는 <span class="mark">같은 사고법으로 다른 도메인들에서 반복적으로 결과를 만들어 왔고,
+        이해당사자들의 호평을 받아 왔습니다.</span>
+        이제 여기에 <strong>AI 엔진의 속도와 확장성</strong>을 더하려 하며,
+        제 스스로의 AI 활용 역량을 높이기 위해 예전이라면 엄두도 못 냈을 시도들을
+        직접 진행하고 있습니다.
+      </p>
 
-      <div class="track-card">
-        <div class="period">2019.01 — 2019.11 · 동서(주)</div>
-        <div class="company">동서</div>
-        <div class="role">음료 PM (Product Manager)</div>
-        <div class="metric">
-          <span class="sign">↓</span>70<span class="unit">%</span>
+      <!-- Side Project Bonus Card -->
+      <div class="side-project">
+        <div class="side-project-label">사이드 프로젝트 — 진행 중인 시도의 증거</div>
+        <div class="side-project-quote">예전이라면 엄두도 못 냈을 데이터 엔지니어링 영역까지, 직접 운영 가능한 수준으로 만들어보고 있습니다.</div>
+        <div class="side-project-card">
+          <div class="side-project-info">
+            <div class="side-project-name">Naver Price Pipeline</div>
+            <div class="side-project-desc">
+              네이버 쇼핑 가격 모니터링 ETL 파이프라인 — GCP (Cloud Run · Functions · BigQuery) + dbt + Airflow + Docker로 구성, 2026.01부터 운영 중.
+            </div>
+            <div class="side-project-meta">
+              <span class="pill">키워드 99개</span>
+              <span class="pill">일 50만+ rows</span>
+              <span class="pill">BigQuery 5천만+ rows</span>
+              <span class="pill metric">스캔 93%↓</span>
+              <span class="pill metric">운영비 76%↓</span>
+            </div>
+          </div>
+
+          <!-- Simplified pipeline diagram (teaser; full version on GitHub) -->
+          <div class="side-project-diagram" aria-label="파이프라인 시스템 흐름 도식">
+            <div class="side-project-diagram-label">
+              시스템 흐름
+              <span class="hint">자세한 구조는 GitHub README 참조</span>
+            </div>
+            <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="네이버 API에서 BigQuery, Airflow, dbt, Mart, Slack까지의 데이터 흐름">
+              <defs>
+                <marker id="sp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C5C66"/>
+                </marker>
+                <marker id="sp-arrow-alert" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#D95757"/>
+                </marker>
+              </defs>
+
+              <!-- Top row: ingestion pipeline -->
+              <!-- Naver API -->
+              <g>
+                <rect x="10" y="20" width="110" height="44" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="65" y="40" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">네이버 API</text>
+                <text x="65" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">source</text>
+              </g>
+              <line x1="120" y1="42" x2="148" y2="42" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- Cloud Run -->
+              <g>
+                <rect x="150" y="20" width="120" height="44" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="210" y="40" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Cloud Run</text>
+                <text x="210" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">매시간 수집</text>
+              </g>
+              <line x1="270" y1="42" x2="298" y2="42" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- GCS -->
+              <g>
+                <rect x="300" y="20" width="90" height="44" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="345" y="40" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">GCS</text>
+                <text x="345" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">JSON 저장</text>
+              </g>
+              <line x1="390" y1="42" x2="418" y2="42" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- BigQuery raw -->
+              <g>
+                <rect x="420" y="20" width="130" height="44" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="485" y="40" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">BigQuery raw</text>
+                <text x="485" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">5천만+ rows</text>
+              </g>
+
+              <!-- Vertical drop from BigQuery raw to Airflow -->
+              <line x1="485" y1="64" x2="485" y2="98" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- Middle row: orchestration + transform -->
+              <!-- Airflow -->
+              <g>
+                <rect x="420" y="100" width="130" height="44" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="485" y="120" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Airflow</text>
+                <text x="485" y="135" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">매일 04:00 KST</text>
+              </g>
+
+              <!-- Airflow → dbt 변환·테스트 (leftward) -->
+              <line x1="420" y1="122" x2="282" y2="122" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- dbt 변환·테스트 (highlighted) -->
+              <g>
+                <rect x="150" y="100" width="130" height="44" rx="8" fill="#EFECFF" stroke="#5C3DFF" stroke-width="1.5"/>
+                <text x="215" y="120" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#4A30D9">dbt 변환·테스트</text>
+                <text x="215" y="135" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#5C3DFF">22개 검증</text>
+              </g>
+
+              <!-- dbt → Mart (downward left) -->
+              <line x1="190" y1="144" x2="125" y2="178" stroke="#5C5C66" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+
+              <!-- Mart -->
+              <g>
+                <rect x="40" y="180" width="130" height="40" rx="8" fill="#fff" stroke="#D4D4DC" stroke-width="1"/>
+                <text x="105" y="198" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Mart</text>
+                <text x="105" y="212" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#9A9AA3">분석용 테이블</text>
+              </g>
+
+              <!-- dbt → Slack (downward right, DASHED + alert color) -->
+              <line x1="240" y1="144" x2="305" y2="178" stroke="#D95757" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sp-arrow-alert)"/>
+
+              <!-- Slack alert -->
+              <g>
+                <rect x="225" y="180" width="160" height="40" rx="8" fill="#FFF4F4" stroke="#D95757" stroke-width="1"/>
+                <text x="305" y="198" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="12" font-weight="700" fill="#A63838">⚠ Slack 알림</text>
+                <text x="305" y="212" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, 'JetBrains Mono', monospace" font-size="9" fill="#D95757">이슈/실패 발생 시</text>
+              </g>
+
+              <!-- Right-side legend showing dashed = conditional -->
+              <g transform="translate(440, 180)">
+                <line x1="0" y1="10" x2="22" y2="10" stroke="#D95757" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <text x="28" y="14" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="10.5" fill="#9A9AA3">조건부 (실패 시에만)</text>
+                <line x1="0" y1="28" x2="22" y2="28" stroke="#5C5C66" stroke-width="1.5"/>
+                <text x="28" y="32" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Pretendard', sans-serif" font-size="10.5" fill="#9A9AA3">정상 데이터 흐름</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="side-project-cta-row">
+            <a class="side-project-cta" href="https://github.com/EbraLim/naver-price-pipeline" target="_blank" rel="noopener noreferrer">GitHub에서 자세히 보기</a>
+          </div>
         </div>
-        <div class="metric-label">수요 예측 오차율 감소</div>
-        <div class="desc">계절성을 반영한 회귀 분석 기반 수요 예측 모델을 직접 개발·적용하여 재고 관리 수준을 근본적으로 개선.</div>
       </div>
 
-      <div class="track-card">
-        <div class="period">2019.12 — 2020.12 · 에코마케팅</div>
-        <div class="company">에코마케팅</div>
-        <div class="role">Account Executive · 크몽 Naver SA</div>
-        <div class="metric">
-          <span class="sign">↑</span>35<span class="unit">%</span>
-        </div>
-        <div class="metric-label">ROAS 증대 (월 예산 2억)</div>
-        <div class="desc">KPI 정의부터 매체 운영 전략, AB 테스트 기획·수행까지.<br>데이터 인사이트를 실행으로 옮긴 경험.</div>
-      </div>
-
-      <div class="track-card">
-        <div class="period">2022.02 — 2024.05 · BAT</div>
-        <div class="company">BAT</div>
-        <div class="role">AE (금융앱 UA/RE) → Data Analyst</div>
-        <div class="metric">
-          <span class="sign">↓</span>20·11<span class="unit">%</span>
-        </div>
-        <div class="metric-label">CPI 20% ↓ · 회원가입 CPA 11% ↓</div>
-        <div class="desc">(AE) 금융앱 UA/RE 캠페인 전략 수립 및 운영,<br>(DA) 협업필터링 기반 CRM 개인화 모델 개발 및 활용 제안.</div>
-      </div>
-
-      <div class="track-card current">
-        <span class="badge">NOW</span>
-        <div class="period">CURRENT · Beiersdorf</div>
-        <div class="company">Beiersdorf</div>
-        <div class="role">DA(디스플레이 광고) 운영 → 영업기획 · P&amp;L 및 세일즈 전략</div>
-        <div class="metric">Revenue<br>→ Profit</div>
-        <div class="metric-label">광고 매출, E-com 전체 매출 및 영업이익까지 숫자 관리</div>
-        <div class="desc">DA ROAS 개선을 시작으로, 현재는 세일즈 전략 방향성 제안까지.<br>숫자가 곧 의사결정이 되는 지점에 있습니다.</div>
-      </div>
-
+      <p>
+        제 과거 이력과 업무 철학, 그리고 채널톡 AX 팀이 지향하는 방향이
+        <span class="quote">같은 곳을 바라보고 있다</span>고 판단해 지원합니다.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- AUTOMATION -->
-<section class="block" id="automation">
+<!-- ────────── Section 03: Closing ────────── -->
+<section class="closing" id="contact">
   <div class="wrap">
     <div class="section-label">
       <span class="num">03</span>
-      AUTOMATION · AI IN PRACTICE
+      LET'S TALK
     </div>
-    <h2 class="section-title">
-      실무에서 <span class="accent">기술로 가치를</span><br>
-      만들어 내었던 기록들.
+    <h2>
+      만나서 더 깊이<br>
+      <span class="accent">이야기 나눠보고 싶습니다.</span>
     </h2>
-    <p class="section-desc">
-      화려하지 않을지도 모릅니다. 하지만 이게 <strong>제가 현장에서 기여했던 경험들</strong>입니다.<br>
-      자동화하고 개인화하는 과정에서, "기술로 어디의 병목을 해결했을 때 현장에서 반응하는지"를 몸으로 배웠습니다.
+    <p class="strength">
+      <span class="key">업무 흐름을 가시화해 근본 문제를 정의하고, 그것을 해결해 실제 현장에서 결과를 만드는 능력</span> —<br>
+      이것이 제 강점입니다.<br><br>
+      AI는 이제 거부할 수 없는 흐름이고, 더 많은 기업이 이 파도에 잘 올라타 성장할 수 있도록,
+      채널톡 AX Consultant로서 그 여정에 함께하고 싶습니다.
     </p>
 
-    <div class="auto-list">
-
-      <div class="auto-row">
-        <div class="num">01</div>
-        <div class="content">
-          <h4>데일리 리포트 작성 자동화 <span class="where">(@BAT)</span></h4>
-          <p>리포트 수기 작성 프로세스를 Python으로 전환. 팀원들의 반복 업무 시간을 90% 이상 줄였습니다.</p>
-        </div>
-        <div class="impact">
-          <div class="big">1h → 5min</div>
-          <div class="small">90% 시간 단축</div>
-        </div>
-      </div>
-
-      <div class="auto-row">
-        <div class="num">02</div>
-        <div class="content">
-          <h4>상품별 가격·품절 모니터링 자동화 <span class="where">(@BAT)</span></h4>
-          <p>수백 개 광고 중 이슈 발생 상품만 자동으로 탐지하여 광고 OFF까지 연결. 낭비 예산을 원천 차단.</p>
-        </div>
-        <div class="impact">
-          <div class="big">N → 1</div>
-          <div class="small">이슈 대응 즉시화</div>
-        </div>
-      </div>
-
-      <div class="auto-row">
-        <div class="num">03</div>
-        <div class="content">
-          <h4>SVD 협업 필터링 기반 개인화 CRM <span class="where">(@BAT)</span></h4>
-          <p>유저 웹로그 기반 개인별 상품 추천 모델 직접 개발. 무분별한 단일 메시지에서 개인화된 LMS로 CRM 개선 제안.</p>
-        </div>
-        <div class="impact">
-          <div class="big">1 → N</div>
-          <div class="small">단일 → 맞춤화</div>
-        </div>
-      </div>
-
-      <div class="auto-row">
-        <div class="num">04</div>
-        <div class="content">
-          <h4>JS 기반 약 500회 반복 다운로드 자동화 <span class="where">(@Beiersdorf)</span></h4>
-          <p>반복 작업을 자동화 스크립트로 전환. 반복 작업 병목을 없애니 아이디어에 쓸 시간이 생긴다는 걸 스스로 증명한 사례.</p>
-        </div>
-        <div class="impact">
-          <div class="big">500× → 1×</div>
-          <div class="small">반복 작업 제거</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- WOW MOMENTS -->
-<section class="block purple" id="wow">
-  <div class="wrap">
-    <div class="section-label">
-      <span class="num">04</span>
-      WOW MOMENTS
-    </div>
-    <h2 class="section-title">
-      AI의 급격한 발전은 제 경력을 위협했고,<br>
-      위기감은 저를 멈추게 하는 대신<br>
-      <span class="accent">움직이게 했습니다.</span>
-    </h2>
-    <p class="section-desc">
-      5년 전만 해도 AI 학습은 어려웠고, 해봤다는 경험만으로도 차별점이 되었습니다.<br>
-      그러나 이제 AI 모델들은 빠르게 발전하고, 링크드인에는 AI 선구자들의 글이 쏟아집니다. 솔직히 저는 <strong>그들을 100% 따라가지 못하고 있고</strong>, 아직 모르는 것이 훨씬 많습니다.<br>
-      그러나 가만히 앉아서 위축되는 대신, 직접 해보는 쪽을 택했습니다. 아래는 그 움직임의 결과물들입니다.<br>
-      크고 완성도 높은 성과는 아닐 수 있습니다. 그러나 이는 <strong>제가 이 변화에 진심이라는, 그래서 움직이고 있다는 증거</strong>입니다.
-    </p>
-
-    <div class="wow-grid">
-
-      <div class="wow-card">
-        <span class="tag">DEEP LEARNING · 2021</span>
-        <div class="quote">"전처리 한 끗 차이로 모델 정확도 76.6% → 98.4%."</div>
-        <h4>수기 OX 이미지 분류 딥러닝 모델</h4>
-        <p>
-          A4를 64등분한 종이에 5종류 펜으로 OX 이미지 총 320장 직접 제작. 이진화 threshold, dilate/erode 커널, ROI crop까지 3번의 iteration으로 성능을 <strong>28%p 끌어올린</strong> 경험. <strong>모델 자체보다 문제 정의 및 전처리가 더 중요할 수 있다</strong>는 걸 몸으로 배웠던 프로젝트.
-        </p>
-        <div class="media">
-          <img src="assets/OX-image.png" alt="직접 제작한 OX 이미지 데이터셋 (5종 필기구)" loading="lazy">
-        </div>
-        <div class="links">
-          <a href="https://github.com/EbraLim/dss_project_DeepLearning_mini" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
-        </div>
-      </div>
-
-      <div class="wow-card">
-        <span class="tag">COMPUTER VISION · 2021</span>
-        <div class="quote">"실시간으로 카메라에 찍힌 사람/이륜차를 구분하고 추적, 거리까지 계산"</div>
-        <h4>YOLO 기반 객체 탐지 및 추적 모델</h4>
-        <p>
-          "자율주행에 필요한 기능을 직접 구현해보고 싶다"는 호기심 하나로 YOLO 아키텍처를 공부하고 구현했던 프로젝트. 모델이 실제로 기능하는 순간 느꼈던 <strong>"AI로 이런 것까지 가능하구나"라는 충격</strong>은 아직까지도 생생합니다. 
-        </p>
-        <div class="media">
-          <video class="yolo-video" autoplay loop muted playsinline preload="auto">
-            <source src="assets/yolo-output.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="links">
-          <a href="https://github.com/EbraLim/dss_project_DeepLearning" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
-          <a href="https://www.youtube.com/watch?v=6U0FsT5lLr8" target="_blank">결과물 보기 ↗</a>
-        </div>
-      </div>
-
-      <!-- App Card: wide -->
-      <div class="wow-card app-card">
-        <div class="app-content">
-          <span class="tag">SHIPPING NOW · 2026</span>
-          <div class="quote">"내가 앱을 만들 수 있다는 것 자체가 wow."</div>
-          <h4>미세먼지 알림 앱 개발 (진행중)</h4>
-          <p>
-            에어코리아 API로 정보를 받아오는 미세먼지 알림 앱.<br>
-            AI로 기획 → 개발 → 배포까지 혼자 가능하다는 걸 직접 확인했던 프로젝트. 지역 설정, 알림 시간 커스터마이즈, 7일 추이 시각화까지 — <strong>"AI가 개인의 역량 범위를 송두리째 바꿀 수 있다는 가능성을 직접 확인했습니다"</strong>
-          </p>
-        </div>
-        <div class="app-screens">
-          <div class="screen-frame"><img src="assets/app-1-region.png" alt="지역 설정 화면" loading="lazy"></div>
-          <div class="screen-frame"><img src="assets/app-2-alarm.png" alt="알림 설정 화면" loading="lazy"></div>
-          <div class="screen-frame"><img src="assets/app-3-main.png" alt="메인 화면" loading="lazy"></div>
-        </div>
-      </div>
-
-      <div class="wow-card" style="grid-column: span 2;">
-        <span class="tag">CLAUDE CODE · 2026</span>
-        <div class="quote">"AI와의 대화로 시스템을 설계하고, 검증하고, 디벨롭한다."</div>
-        <h4>데이터 엔지니어링 독학 중</h4>
-        <p>
-          데이터 파이프라인을 <strong>Claude Code와의 대화로 구현·검증·디벨롭하는 경험</strong>은 신선한 충격이었습니다.<br>앞으로 이것이 모든 일의 기본 방식이 될 것이라는 확신이 들었습니다. — <strong>이 지원서 페이지조차 Claude Code로 만들고 있습니다.</strong>
-        </p>
-        <div class="data-pipeline-snapshot">
-          <div class="pipeline-frame"><img src="assets/pipeline-architecture.png" alt="데이터 파이프라인 아키텍처" loading="lazy"></div>
-          <p class="caption">매시간 수집, 매일 새벽 적재·검증되는 네이버 쇼핑 데이터 파이프라인<br>— <code>Cloud Functions</code>, <code>BigQuery</code>, <code>dbt</code>, <code>Airflow</code>를 Claude Code와 대화로 구성했습니다.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FUTURE -->
-<div class="future-wrap" id="future">
-  <div class="wrap">
-    <div class="section-label">
-      <span class="num">05</span>
-      WHAT I HOPE TO BUILD AT AX
-    </div>
-    <h2 class="section-title">
-      거창한 포부 대신,<br>
-      <span class="accent">솔직한 기대입니다.</span>
-    </h2>
-    <p class="section-desc">
-      아직 되지 못한 상태에서, 되고 싶은 방향을 적습니다.<br>
-      다만 이것들은 막연한 소망이 아니라, 지금까지의 경험과 지금 하고 있는 움직임 위에 있습니다.
-    </p>
-
-    <div class="future-list">
-      <div class="future-item">
-        <div class="num">1</div>
-        <h4>문제의 본질을 찾는 안목을<br>AI와 결합하는 사람</h4>
-        <p>기술은 무섭도록 빨라졌지만, <strong>문제를 정의하고 본질을 보는 안목</strong>은 아직 인간의 몫이 남아 있다고 믿습니다. 6년간 비즈니스 문제를 해결해온 제 경험과 지금의 AI가 결합될 때 어떤 가능성이 열릴지, 직접 마주해보고 싶습니다.</p>
-      </div>
-      <div class="future-item">
-        <div class="num">2</div>
-        <h4>AI의 쓰임새를<br>보여주는 사람</h4>
-        <p>여전히 누군가에게는 AI란 낯선 무언가, 단순한 번역기에 불과합니다. 이러한 분들께 <strong>"AI로 이렇게까지도 되는구나"</strong>를 깨닫게 할 수 있는 사람이 되고 싶습니다. <strong>ALF가 누적 1,400+ 고객사에서 평균 44.9%, 잘 세팅된 곳에서는 80%+의 해결률</strong>을 만들어내고 있다고 들었습니다. 그 숫자를 더 많은 고객사로 확장하는 데 기여하고 싶습니다.</p>
-      </div>
-      <div class="future-item">
-        <div class="num">3</div>
-        <h4>글로벌로<br>확장하는 여정에 함께</h4>
-        <p>일본·미국으로 뻗어가는 채널톡의 글로벌 진출. <strong>비즈니스 영어로 소통 가능한 AX팀원</strong>으로 그 여정에 참여하고 싶습니다.</p>
-      </div>
-    </div>
-
-    <div class="vision-quote">
-      <div class="quote-mark">"</div>
-      <p>
-        <span class="hl">빠르게 배워서,</span><br>
-        빠르게 고객의 성장에 기여하겠습니다. 
-      </p>
-      <span class="attr">— 임현수 · AX Consultant 지원자</span>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap">
     <div class="contact-card">
-      <h3><span class="accent">대화할 기회</span>를 주시면<br>감사하겠습니다.</h3>
-      <p class="sub">당장은 성에 차지 않으실 수 있습니다. 하지만 누구보다 빠르게 따라잡아 기여할 준비가 되어 있습니다.</p>
+      <h3>기회 주시면 감사하겠습니다.</h3>
+      <p class="sub">아래 어디로든 편하게 연락 주세요. 빠르게 회신드리겠습니다.</p>
       <div class="contact-links">
-        <a class="primary" href="mailto:dlagustn1203@gmail.com">✉ dlagustn1203@gmail.com</a>
-        <a href="tel:01066893382">☎ 010-6689-3382</a>
-        <a href="https://github.com/EbraLim" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/ebralim" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="primary" href="mailto:dlagustn1203@gmail.com">✉ 이메일 보내기</a>
+        <a href="tel:01066893382">☎ 전화하기</a>
+        <a href="https://www.linkedin.com/in/ebralim/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="RESUME_PDF_URL_HERE" target="_blank" rel="noopener noreferrer">이력서 PDF ↓</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 임현수 · Built with <span class="built">Claude Code</span> · Last updated April 23, 2026
+  © 2026 임현수 · Built with <span class="built">Claude Code</span>
 </footer>
 
 <script>
 (function() {
-  // ===== TOC Menu toggle =====
+  // ===== Case accordion =====
+  var caseHeaders = document.querySelectorAll('.case-header');
+  function toggleCase(header) {
+    var caseEl = header.closest('.case');
+    var isOpen = caseEl.classList.contains('open');
+    caseEl.classList.toggle('open', !isOpen);
+    header.setAttribute('aria-expanded', String(!isOpen));
+  }
+  caseHeaders.forEach(function(header) {
+    header.addEventListener('click', function() { toggleCase(header); });
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCase(header);
+      }
+    });
+  });
+
+  // Auto-open first case after a brief pause to signal interactivity
+  var firstCase = document.querySelector('.case');
+  if (firstCase) {
+    setTimeout(function() {
+      var rect = firstCase.getBoundingClientRect();
+      var inViewSoon = rect.top < window.innerHeight * 1.4;
+      if (inViewSoon && !firstCase.classList.contains('open')) {
+        firstCase.classList.add('open');
+        var header = firstCase.querySelector('.case-header');
+        if (header) header.setAttribute('aria-expanded', 'true');
+      }
+    }, 1800);
+  }
+
+  // ===== Model breakdown toggle (Case 03 bonus track) =====
+  var modelBreakdown = document.querySelector('.model-breakdown');
+  var modelToggle = modelBreakdown ? modelBreakdown.querySelector('.model-toggle') : null;
+  if (modelBreakdown && modelToggle) {
+    modelToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = modelBreakdown.classList.contains('open');
+      modelBreakdown.classList.toggle('open', !isOpen);
+      modelToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+
+  // ===== TOC Menu toggle (mobile / tablet) =====
   var tocToggle = document.querySelector('.toc-toggle');
   var tocMenu = document.getElementById('toc-menu');
   var tocLinks = tocMenu ? tocMenu.querySelectorAll('a') : [];
 
   function closeToc() {
+    if (!tocMenu || !tocToggle) return;
     tocMenu.classList.remove('open');
     tocToggle.setAttribute('aria-expanded', 'false');
   }
   function openToc() {
+    if (!tocMenu || !tocToggle) return;
     tocMenu.classList.add('open');
     tocToggle.setAttribute('aria-expanded', 'true');
   }
@@ -1820,21 +2259,11 @@
   if (tocToggle && tocMenu) {
     tocToggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      if (tocMenu.classList.contains('open')) {
-        closeToc();
-      } else {
-        openToc();
-      }
+      if (tocMenu.classList.contains('open')) closeToc(); else openToc();
     });
-
-    // Close on any link click
     tocLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
-        closeToc();
-      });
+      link.addEventListener('click', function() { closeToc(); });
     });
-
-    // Close on outside click
     document.addEventListener('click', function(e) {
       if (tocMenu.classList.contains('open') &&
           !tocMenu.contains(e.target) &&
@@ -1842,25 +2271,20 @@
         closeToc();
       }
     });
-
-    // Close on ESC
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && tocMenu.classList.contains('open')) {
-        closeToc();
-      }
+      if (e.key === 'Escape' && tocMenu.classList.contains('open')) closeToc();
     });
   }
 
-  // ===== Active section tracking (IntersectionObserver) =====
-  var sections = ['why', 'track', 'automation', 'wow', 'future']
+  // ===== Active section tracking =====
+  var sectionIds = ['cases', 'why', 'contact'];
+  var sections = sectionIds
     .map(function(id) { return document.getElementById(id); })
     .filter(Boolean);
 
-  // Collect all TOC links (from both dropdown menu and side TOC)
   var sideToc = document.querySelector('.side-toc');
   var sideTocLinks = sideToc ? sideToc.querySelectorAll('a') : [];
 
-  // Map id -> array of links pointing to that id
   var linksById = {};
   function registerLinks(linkList) {
     linkList.forEach(function(link) {
@@ -1891,7 +2315,6 @@
       rootMargin: '-25% 0px -60% 0px',
       threshold: [0, 0.1, 0.3]
     });
-
     sections.forEach(function(s) { observer.observe(s); });
   }
 
@@ -1909,21 +2332,10 @@
         ticking = true;
       }
     }, { passive: true });
-
     toTop.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-  // ===== Video loop safety net =====
-  // Some browsers occasionally drop the loop attribute; force replay on ended.
-  var loopVideos = document.querySelectorAll('video[loop]');
-  loopVideos.forEach(function(v) {
-    v.addEventListener('ended', function() {
-      v.currentTime = 0;
-      v.play().catch(function() {});
-    });
-  });
 })();
 </script>
 
